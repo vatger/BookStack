@@ -143,7 +143,7 @@ class VATSIMConnectController extends Controller
 
         if (!$user) {
             // Create random user slug
-            $value = $resourceOwner->data->cid . ' ' . Str::random();
+            $value = $resourceOwner->data->cid;
             $slug = Str::slug($value, "-");
 
             // We need to create a new user here
@@ -172,6 +172,7 @@ class VATSIMConnectController extends Controller
         } else {
             // We know the user exists, so we need to update their account data
             $user->update([
+                'name' => $resourceOwner->data->cid,
                 'fullname' => $resourceOwner->data->personal->name_first . ' ' . $resourceOwner->data->personal->name_last,
                 'email' => $resourceOwner->data->personal->email,
             ]);
