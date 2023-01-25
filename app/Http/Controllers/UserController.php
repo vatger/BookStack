@@ -138,6 +138,7 @@ class UserController extends Controller
         $this->checkPermissionOrCurrentUser('users-manage', $id);
 
         $validated = $this->validate($request, [
+            /*
             'name'             => ['min:2', 'max:100'],
             'email'            => ['min:2', 'email', 'unique:users,email,' . $id],
             'password'         => ['required_with:password_confirm', Password::default()],
@@ -147,10 +148,11 @@ class UserController extends Controller
             'roles.*'          => ['integer'],
             'external_auth_id' => ['string'],
             'profile_image'    => array_merge(['nullable'], $this->getImageValidationRules()),
+            */
         ]);
 
         $user = $this->userRepo->getById($id);
-        $this->userRepo->update($user, $validated, userCan('users-manage'));
+        //$this->userRepo->update($user, $validated, userCan('users-manage'));
 
         // Save profile image if in request
         if ($request->hasFile('profile_image')) {
@@ -158,7 +160,7 @@ class UserController extends Controller
             $this->imageRepo->destroyImage($user->avatar);
             $image = $this->imageRepo->saveNew($imageUpload, 'user', $user->id);
             $user->image_id = $image->id;
-            $user->save();
+            //$user->save();
         }
 
         // Delete the profile image if reset option is in request

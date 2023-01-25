@@ -13,6 +13,7 @@
 
             @include('auth.parts.login-form-' . $authMethod)
 
+            {{--
             @if(count($socialDrivers) > 0)
                 <hr class="my-l">
                 @foreach($socialDrivers as $driver => $name)
@@ -24,6 +25,9 @@
                     </div>
                 @endforeach
             @endif
+            --}}
+
+            @component('components.login-text')@endcomponent
 
             @if(setting('registration-enabled') && config('auth.method') === 'standard')
                 <div class="text-center pb-s">

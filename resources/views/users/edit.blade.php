@@ -13,7 +13,7 @@
 
                 <div class="setting-list">
                     @include('users.parts.form', ['model' => $user, 'authMethod' => $authMethod])
-
+                    {{--
                     <div class="grid half gap-xl">
                         <div>
                             <label for="user-avatar" class="setting-list-label">{{ trans('settings.users_avatar') }}</label>
@@ -32,7 +32,7 @@
                             ])
                         </div>
                     </div>
-
+                    --}}
                     @include('users.parts.language-option-row', ['value' => setting()->getUser($user, 'language', config('app.default_locale'))])
                 </div>
 
@@ -45,7 +45,7 @@
                 </div>
             </form>
         </section>
-
+        {{--
         <section class="card content-wrap auto-height">
             <h2 class="list-heading">{{ trans('settings.users_mfa') }}</h2>
             <p>{{ trans('settings.users_mfa_desc') }}</p>
@@ -94,7 +94,7 @@
                 </div>
             </section>
         @endif
-
+        --}}
         @if((user()->id === $user->id && userCan('access-api')) || userCan('users-manage'))
             @include('users.api-tokens.parts.list', ['user' => $user])
         @endif

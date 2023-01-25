@@ -14,17 +14,17 @@
     <div class="grid half mt-m gap-xl">
         <div>
             <label for="name">{{ trans('auth.name') }}</label>
-            @include('form.text', ['name' => 'name'])
+            @include('form.text', ['name' => 'name', 'disabled' => true])
         </div>
         <div>
             @if($authMethod !== 'ldap' || userCan('users-manage'))
                 <label for="email">{{ trans('auth.email') }}</label>
-                @include('form.text', ['name' => 'email', 'disabled' => !userCan('users-manage')])
+                @include('form.text', ['name' => 'email', 'disabled' => true])
             @endif
         </div>
     </div>
 </div>
-
+{{--
 @if(in_array($authMethod, ['ldap', 'saml2', 'oidc']) && userCan('users-manage'))
     <div class="grid half gap-xl v-center">
         <div>
@@ -36,7 +36,7 @@
         </div>
     </div>
 @endif
-
+--}}
 @if(userCan('users-manage'))
     <div>
         <label for="role" class="setting-list-label">{{ trans('settings.users_role') }}</label>

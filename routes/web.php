@@ -349,6 +349,17 @@ Route::post('/password/email', [Auth\ForgotPasswordController::class, 'sendReset
 Route::get('/password/reset/{token}', [Auth\ResetPasswordController::class, 'showResetForm']);
 Route::post('/password/reset', [Auth\ResetPasswordController::class, 'reset']);
 
+Route::prefix('authentication')->group(function () {
+    Route::prefix('connect')->group(function () {
+        Route::get('login', [Auth\VATSIMConnectController::class, 'login'])->name('vatsim.authentication.connect.login');
+        Route::get('logout', [Auth\VATSIMConnectController::class, 'logout'])->name('vatsim.authentication.connect.logout');
+        Route::get('failed', function (\BookStack\Http\Request $request) {
+            dd($request);
+        })->name('vatsim.authentication.connect.failed');
+    });
+});
+
+
 // Metadata routes
 Route::view('/help/wysiwyg', 'help.wysiwyg');
 
