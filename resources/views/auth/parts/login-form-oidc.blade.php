@@ -3,7 +3,7 @@
 
         <div>
             <button id="oidc-login" class="button outline svg">
-               <img src="{{ config('authentication.connect.icon') }}" height="30px">
+               <img src="{{ config('vatsim.authentication.connect.icon') }}" height="30px">
                 <span style="padding-left: 10px">{{ trans('auth.log_in_with', ['socialDriver' => 'VATSIM Connect']) }}</span>
             </button>
         </div>
