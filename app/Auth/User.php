@@ -340,6 +340,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
         return strval($this->id);
     }
+    
+    public function getNameAttribute(): string
+    {
+        return strval($this->id);
+    }
 
     /**
      * Send the password reset notification.
