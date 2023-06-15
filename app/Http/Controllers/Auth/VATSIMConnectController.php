@@ -54,9 +54,8 @@ class VATSIMConnectController extends Controller
                 // Initiate the authentication process using VATSIM Connect
                 // 1. Test if the service is available at all.
                 // 2. If available: Prepare the authentication url and send the user away to it
-                // 3. If NOT available: Fall back to local authentication
                 $response = \Illuminate\Support\Facades\Http::timeout(30)->get(config('vatsim.authentication.connect.base'));
-                if ($response->successful()) {
+                if ($response->status() < 500 || $response->status() > 599) {
                     $authenticationUrl = $this->_provider->getAuthorizationUrl();
                     $request->session()->put('vatsim.authentication.connect.state', $this->_provider->getState());
                     return redirect()->away($authenticationUrl);
