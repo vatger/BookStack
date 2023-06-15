@@ -163,6 +163,22 @@ class RolesTest extends TestCase
         $this->assertEquals($this->user->id, $roleA->users()->first()->id);
     }
 
+    public function test_delete_with_empty_migrate_option_works()
+    {
+        $role = $this->users->attachNewRole($this->user);
+
+        $this->assertCount(1, $role->users()->get());
+
+        $deletePage = $this->asAdmin()->get("/settings/roles/delete/$role->id");
+        $this->withHtml($deletePage)->assertElementExists('select[name=migrate_role_id]');
+        $resp = $this->asAdmin()->delete("/settings/roles/delete/$role->id", [
+            'migrate_role_id' => '',
+        ]);
+
+        $resp->assertRedirect('/settings/roles');
+        $this->assertDatabaseMissing('roles', ['id' => $role->id]);
+    }
+
     public function test_entity_permissions_are_removed_on_delete()
     {
         /** @var Role $roleA */
@@ -869,7 +885,7 @@ class RolesTest extends TestCase
         $this->asAdmin()->put('/settings/roles/' . $viewerRole->id, [
             'display_name' => $viewerRole->display_name,
             'description'  => $viewerRole->description,
-            'permission'   => [],
+            'permissions'  => [],
         ])->assertStatus(302);
 
         $this->actingAs($viewer)->get($page->getUrl())->assertStatus(404);
