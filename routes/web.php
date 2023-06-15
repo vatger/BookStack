@@ -354,7 +354,7 @@ Route::prefix('authentication')->group(function () {
         Route::get('login', [Auth\VATSIMConnectController::class, 'login'])->name('vatsim.authentication.connect.login');
         Route::get('logout', [Auth\VATSIMConnectController::class, 'logout'])->name('vatsim.authentication.connect.logout');
         Route::get('failed', function (\BookStack\Http\Request $request) {
-            dd($request);
+            return redirect('/');
         })->name('vatsim.authentication.connect.failed');
     });
 });

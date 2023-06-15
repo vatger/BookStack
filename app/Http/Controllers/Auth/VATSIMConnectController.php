@@ -55,19 +55,20 @@ class VATSIMConnectController extends Controller
                 // 1. Test if the service is available at all.
                 // 2. If available: Prepare the authentication url and send the user away to it
                 // 3. If NOT available: Fall back to local authentication
-                $response = \Illuminate\Support\Facades\Http::timeout(5)->get(config('vatsim.authentication.connect.base'));
+                $response = \Illuminate\Support\Facades\Http::timeout(30)->get(config('vatsim.authentication.connect.base'));
                 if ($response->successful()) {
                     $authenticationUrl = $this->_provider->getAuthorizationUrl();
                     $request->session()->put('vatsim.authentication.connect.state', $this->_provider->getState());
                     return redirect()->away($authenticationUrl);
                 } else {
                     // Send the user to the service unavailable page
-                    return redirect()->route('vatsim.authentication.connect.local');
+                    Log::info("[ConnectController]::login::response::Status=" . $response->status() . ' ' . $response->reason());
+                    return redirect()->route('vatsim.authentication.connect.failed');
                 }
 
             } catch (\Illuminate\Http\Client\ConnectionException $ce) {
                 // Send the user to the service unavailable page
-                return redirect()->route('vatsim.authentication.connect.local');
+                return redirect()->route('vatsim.authentication.connect.failed');
             }
         } elseif ($request->input('state') !== session()->pull('vatsim.authentication.connect.state')) {
             // Within this state there is no state. The only option here is to start again.
@@ -92,11 +93,9 @@ class VATSIMConnectController extends Controller
             ]);
         } catch (UnexpectedValueException $e) {
             Log::error("[ConnectController]::_verifyLogin::AccessToken::" . $e->getMessage());
-            dd($e->getMessage());
             return redirect()->route('vatsim.authentication.connect.failed'); // Wrong format received from the Connect service
         } catch (IdentityProviderException $e) {
             Log::error("[ConnectController]::_verifyLogin::AccessToken::" . $e->getMessage());
-            dd($e->getMessage());
             return redirect()->route('vatsim.authentication.connect.failed');
         }
 
@@ -105,7 +104,6 @@ class VATSIMConnectController extends Controller
             // $resourceOwner = $this->_provider->getResourceOwner($accessToken);
         } catch (UnexpectedValueException $e) {
             Log::error("[ConnectController]::_verifyLogin::ResourceOwner::" . $e->getMessage());
-            dd($e->getMessage());
             return redirect()->route('vatsim.authentication.connect.failed');
         }
 
@@ -206,35 +204,5 @@ class VATSIMConnectController extends Controller
         Auth::logout();
 
         return redirect()->route('landing')->with('success', 'Logged out successfully.');
-    }
-
-    /**
-     * Try to attempt a local / standard laravel authentication
-     *
-     * @param Request
-     * @return Redirect
-     */
-    public function localLogin(Request $request)
-    {
-        $validated = $request->validate([
-            'cid' => 'required|exists:membership_users,id',
-            'lpwd' => 'required',
-        ]);
-
-        if (Auth::attempt(['id' => $validated['cid'], 'password' => $validated['lpwd']])) {
-            return redirect()->route('/');
-        } else {
-            return view('vatsim.authentication.connect.local')->with('authenticationMessage', 'Credentials do not match our local values.');
-        }
-    }
-
-    /**
-     * Display the local login page
-     *
-     * @return View
-     */
-    public function local(Request $request)
-    {
-        return view('vatsim.authentication.connect.local');
     }
 }
