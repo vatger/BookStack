@@ -1,5 +1,5 @@
 <?php
-namespace BookStack\Providers;
+namespace BookStack\App\Providers;
 
 use League\OAuth2\Client\Token;
 use League\OAuth2\Client\Provider\GenericProvider;
@@ -49,9 +49,6 @@ class ConnectProvider extends GenericProvider
     /**
      * OVERWRITTEN
      * Returns authorization parameters based on provided options.
-     *
-     * @param  array $options
-     * @return string Authorization URL
      */
     public function getAuthorizationUrl(array $options = [])
     {
@@ -77,9 +74,6 @@ class ConnectProvider extends GenericProvider
 
     /**
      * Get a new token from an older one
-     *
-     * @var Token The token that shall be renewed
-     * @return null|Token
      */
     public static function updateToken($token)
     {

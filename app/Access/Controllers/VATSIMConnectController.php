@@ -3,7 +3,7 @@
 
 namespace BookStack\Access\Controllers;
 
-use BookStack\Providers\ConnectProvider;
+use BookStack\App\Providers\ConnectProvider;
 use BookStack\Http\Controller;
 use BookStack\Users\Models\User;
 use Illuminate\Http\RedirectResponse;
