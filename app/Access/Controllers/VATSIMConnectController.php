@@ -74,9 +74,6 @@ class VATSIMConnectController extends Controller
 
     /**
      * Check that all required data is received from the VATSIM Connect authentication system
-     *
-     * @param Request
-     * @return RedirectResponse|Redirect
      */
     protected function _verifyLogin(Request $request)
     {
@@ -103,11 +100,6 @@ class VATSIMConnectController extends Controller
         if (!isset($resourceOwner->data) || !isset($resourceOwner->data->cid) || !isset($resourceOwner->data->personal->name_first) || !isset($resourceOwner->data->personal->name_last) || !isset($resourceOwner->data->personal->email) || $resourceOwner->data->oauth->token_valid !== "true") {
             return redirect()->route('vatsim.authentication.connect.failed');
         }
-
-        if (User::query()->where('email', $resourceOwner->data->personal->email)->exists()) {
-            return redirect()->route('vatsim.authentication.connect.failed');
-        }
-
         // All checks completed. Let's finally sign in the user
         $user = $this->_completeLogin($resourceOwner, $accessToken);
 
@@ -180,9 +172,9 @@ class VATSIMConnectController extends Controller
      * Display a failed message and then return to the login
      *
      */
-    public function failed(Request $request): RedirectResponse
+    public function failed(): RedirectResponse
     {
-        return redirect('/')->withErrors('Error logging in. Please try again.');
+        return redirect('/')->with('error','Error logging in. Please try again.');
     }
 
     /**
