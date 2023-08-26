@@ -45,18 +45,20 @@ return [
     'cannot_create_thumbs' => 'Сервер не може створювати ескізи. Будь ласка, перевірте, чи встановлено розширення GD PHP.',
     'server_upload_limit' => 'Сервер не дозволяє завантажувати файли такого розміру. Спробуйте менший розмір файлу.',
     'uploaded'  => 'Сервер не дозволяє завантажувати файли такого розміру. Спробуйте менший розмір файлу.',
-    'file_upload_timeout' => 'Тайм-аут при завантаженні файлу',
 
     // Drawing & Images
     'image_upload_error' => 'Виникла помилка під час завантаження зображення',
     'image_upload_type_error' => 'Тип завантаженого зображення недійсний',
+    'image_upload_replace_type' => 'Image file replacements must be of the same type',
     'drawing_data_not_found' => 'Не вдалося завантажити дані малюнка. Файл малюнка може більше не існувати або у вас немає дозволу на доступ до нього.',
 
     // Attachments
     'attachment_not_found' => 'Вкладення не знайдено',
+    'attachment_upload_error' => 'An error occurred uploading the attachment file',
 
     // Pages
     'page_draft_autosave_fail' => 'Не вдалося зберегти чернетку. Перед збереженням цієї сторінки переконайтеся, що у вас є зв\'язок з сервером.',
+    'page_draft_delete_fail' => 'Failed to delete page draft and fetch current page saved content',
     'page_custom_home_deletion' => 'Неможливо видалити сторінку, коли вона встановлена як домашня сторінка',
 
     // Entities

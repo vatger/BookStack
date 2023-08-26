@@ -45,18 +45,20 @@ return [
     'cannot_create_thumbs' => 'لا يمكن للخادم إنشاء صور مصغرة. الرجاء التأكد من تثبيت إضافة GD PHP.',
     'server_upload_limit' => 'الخادم لا يسمح برفع ملفات بهذا الحجم. الرجاء محاولة الرفع بحجم أصغر.',
     'uploaded'  => 'الخادم لا يسمح برفع ملفات بهذا الحجم. الرجاء محاولة الرفع بحجم أصغر.',
-    'file_upload_timeout' => 'انتهت عملية تحميل الملف.',
 
     // Drawing & Images
     'image_upload_error' => 'حدث خطأ خلال رفع الصورة',
     'image_upload_type_error' => 'صيغة الصورة المرفوعة غير صالحة',
+    'image_upload_replace_type' => 'Image file replacements must be of the same type',
     'drawing_data_not_found' => 'Drawing data could not be loaded. The drawing file might no longer exist or you may not have permission to access it.',
 
     // Attachments
     'attachment_not_found' => 'لم يتم العثور على المرفق',
+    'attachment_upload_error' => 'An error occurred uploading the attachment file',
 
     // Pages
     'page_draft_autosave_fail' => 'فشل حفظ المسودة. الرجاء التأكد من وجود اتصال بالإنترنت قبل حفظ الصفحة',
+    'page_draft_delete_fail' => 'Failed to delete page draft and fetch current page saved content',
     'page_custom_home_deletion' => 'لا يمكن حذف الصفحة إذا كانت محددة كصفحة رئيسية',
 
     // Entities

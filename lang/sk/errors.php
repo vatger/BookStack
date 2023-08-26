@@ -45,18 +45,20 @@ return [
     'cannot_create_thumbs' => 'Server nedokáže vytvoriť náhľady. Skontrolujte prosím, či máte nainštalované GD rozšírenie PHP.',
     'server_upload_limit' => 'Server nedovoľuje nahrávanie súborov s takouto veľkosťou. Skúste prosím menší súbor.',
     'uploaded'  => 'Server nedovoľuje nahrávanie súborov s takouto veľkosťou. Skúste prosím menší súbor.',
-    'file_upload_timeout' => 'Nahrávanie súboru vypršalo.',
 
     // Drawing & Images
     'image_upload_error' => 'Pri nahrávaní obrázka nastala chyba',
     'image_upload_type_error' => 'Typ nahrávaného obrázka je neplatný',
+    'image_upload_replace_type' => 'Image file replacements must be of the same type',
     'drawing_data_not_found' => 'Údaje výkresu sa nepodarilo načítať. Súbor výkresu už možno neexistuje alebo nemáte povolenie na prístup k nemu.',
 
     // Attachments
     'attachment_not_found' => 'Príloha nenájdená',
+    'attachment_upload_error' => 'Pri nahrávaní súboru prílohy nastala chyba',
 
     // Pages
     'page_draft_autosave_fail' => 'Koncept nemohol byť uložený. Uistite sa, že máte pripojenie k internetu pre uložením tejto stránky',
+    'page_draft_delete_fail' => 'Failed to delete page draft and fetch current page saved content',
     'page_custom_home_deletion' => 'Stránku nie je možné odstrániť, kým je nastavená ako domovská stránka',
 
     // Entities

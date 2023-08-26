@@ -45,18 +45,20 @@ return [
     'cannot_create_thumbs' => 'The server cannot create thumbnails. Please check you have the GD PHP extension installed.',
     'server_upload_limit' => 'The server does not allow uploads of this size. Please try a smaller file size.',
     'uploaded'  => 'The server does not allow uploads of this size. Please try a smaller file size.',
-    'file_upload_timeout' => 'The file upload has timed out.',
 
     // Drawing & Images
     'image_upload_error' => 'Errorea gertatu da irudia igotzerakoan',
     'image_upload_type_error' => 'The image type being uploaded is invalid',
+    'image_upload_replace_type' => 'Image file replacements must be of the same type',
     'drawing_data_not_found' => 'Drawing data could not be loaded. The drawing file might no longer exist or you may not have permission to access it.',
 
     // Attachments
     'attachment_not_found' => 'Atxikia ez da aurkitu',
+    'attachment_upload_error' => 'An error occurred uploading the attachment file',
 
     // Pages
     'page_draft_autosave_fail' => 'Failed to save draft. Ensure you have internet connection before saving this page',
+    'page_draft_delete_fail' => 'Failed to delete page draft and fetch current page saved content',
     'page_custom_home_deletion' => 'Cannot delete a page while it is set as a homepage',
 
     // Entities

@@ -45,18 +45,20 @@ return [
     'cannot_create_thumbs' => '伺服器無法建立縮圖。請檢查您是否安裝了 PHP 的 GD 擴充程式。',
     'server_upload_limit' => '伺服器不允許上傳這個大的檔案。請嘗試較小的檔案。',
     'uploaded'  => '伺服器不允許上傳這個大的檔案。請嘗試較小的檔案。',
-    'file_upload_timeout' => '檔案上傳逾時。',
 
     // Drawing & Images
     'image_upload_error' => '上傳圖片時發生錯誤',
     'image_upload_type_error' => '上傳圖片類型無效',
-    'drawing_data_not_found' => 'Drawing data could not be loaded. The drawing file might no longer exist or you may not have permission to access it.',
+    'image_upload_replace_type' => 'Image file replacements must be of the same type',
+    'drawing_data_not_found' => '無法載入繪圖資料，繪圖檔案可能不存在，或您可能沒有權限存取它。',
 
     // Attachments
     'attachment_not_found' => '找不到附件',
+    'attachment_upload_error' => 'An error occurred uploading the attachment file',
 
     // Pages
     'page_draft_autosave_fail' => '無法儲存草稿。請確保您在儲存此頁面前已連線至網際網路',
+    'page_draft_delete_fail' => 'Failed to delete page draft and fetch current page saved content',
     'page_custom_home_deletion' => '無法刪除被設定為首頁的頁面',
 
     // Entities

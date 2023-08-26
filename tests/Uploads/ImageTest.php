@@ -92,6 +92,52 @@ class ImageTest extends TestCase
         ]);
     }
 
+    public function test_image_file_update()
+    {
+        $page = $this->entities->page();
+        $this->asEditor();
+
+        $imgDetails = $this->files->uploadGalleryImageToPage($this, $page);
+        $relPath = $imgDetails['path'];
+
+        $newUpload = $this->files->uploadedImage('updated-image.png', 'compressed.png');
+        $this->assertFileEquals($this->files->testFilePath('test-image.png'), public_path($relPath));
+
+        $imageId = $imgDetails['response']->id;
+        $image = Image::findOrFail($imageId);
+        $image->updated_at = now()->subMonth();
+        $image->save();
+
+        $this->call('PUT', "/images/{$imageId}/file", [], [], ['file' => $newUpload])
+            ->assertOk();
+
+        $this->assertFileEquals($this->files->testFilePath('compressed.png'), public_path($relPath));
+
+        $image->refresh();
+        $this->assertTrue($image->updated_at->gt(now()->subMinute()));
+
+        $this->files->deleteAtRelativePath($relPath);
+    }
+
+    public function test_image_file_update_does_not_allow_change_in_image_extension()
+    {
+        $page = $this->entities->page();
+        $this->asEditor();
+
+        $imgDetails = $this->files->uploadGalleryImageToPage($this, $page);
+        $relPath = $imgDetails['path'];
+        $newUpload = $this->files->uploadedImage('updated-image.jpg', 'compressed.png');
+
+        $imageId = $imgDetails['response']->id;
+        $this->call('PUT', "/images/{$imageId}/file", [], [], ['file' => $newUpload])
+            ->assertJson([
+                "message" => "Image file replacements must be of the same type",
+                "status" => "error",
+            ]);
+
+        $this->files->deleteAtRelativePath($relPath);
+    }
+
     public function test_gallery_get_list_format()
     {
         $this->asEditor();
@@ -163,7 +209,8 @@ class ImageTest extends TestCase
 
         $file = $this->files->imageFromBase64File('bad-php.base64', $fileName);
         $upload = $this->withHeader('Content-Type', 'image/jpeg')->call('POST', '/images/gallery', ['uploaded_to' => $page->id], [], ['file' => $file], []);
-        $upload->assertStatus(302);
+        $upload->assertStatus(500);
+        $this->assertStringContainsString('The file must have a valid & supported image extension', $upload->json('message'));
 
         $this->assertFalse(file_exists(public_path($relPath)), 'Uploaded php file was uploaded but should have been stopped');
 
@@ -185,7 +232,8 @@ class ImageTest extends TestCase
 
         $file = $this->files->imageFromBase64File('bad-phtml.base64', $fileName);
         $upload = $this->withHeader('Content-Type', 'image/jpeg')->call('POST', '/images/gallery', ['uploaded_to' => $page->id], [], ['file' => $file], []);
-        $upload->assertStatus(302);
+        $upload->assertStatus(500);
+        $this->assertStringContainsString('The file must have a valid & supported image extension', $upload->json('message'));
 
         $this->assertFalse(file_exists(public_path($relPath)), 'Uploaded php file was uploaded but should have been stopped');
     }
@@ -491,15 +539,15 @@ class ImageTest extends TestCase
         $image = Image::first();
 
         $resp = $this->get("/images/edit/{$image->id}");
-        $this->withHtml($resp)->assertElementExists('button#image-manager-delete[title="Delete"]');
+        $this->withHtml($resp)->assertElementExists('button#image-manager-delete');
 
         $resp = $this->actingAs($viewer)->get("/images/edit/{$image->id}");
-        $this->withHtml($resp)->assertElementNotExists('button#image-manager-delete[title="Delete"]');
+        $this->withHtml($resp)->assertElementNotExists('button#image-manager-delete');
 
         $this->permissions->grantUserRolePermissions($viewer, ['image-delete-all']);
 
         $resp = $this->actingAs($viewer)->get("/images/edit/{$image->id}");
-        $this->withHtml($resp)->assertElementExists('button#image-manager-delete[title="Delete"]');
+        $this->withHtml($resp)->assertElementExists('button#image-manager-delete');
 
         $this->files->deleteAtRelativePath($relPath);
     }

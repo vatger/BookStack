@@ -9,7 +9,6 @@ return [
     // Common Messages
     'settings' => '設定',
     'settings_save' => '儲存設定',
-    'settings_save_success' => '設定已儲存',
     'system_version' => '系統版本',
     'categories' => '分類',
 
@@ -34,7 +33,7 @@ return [
     'app_custom_html_disabled_notice' => '在此設定頁面上停用了自訂 HTML 標題內容，以確保任何重大變更都能被還原。',
     'app_logo' => '應用程式圖示',
     'app_logo_desc' => 'This is used in the application header bar, among other areas. This image should be 86px in height. Large images will be scaled down.',
-    'app_icon' => 'Application Icon',
+    'app_icon' => '應用程式圖示',
     'app_icon_desc' => 'This icon is used for browser tabs and shortcut icons. This should be a 256px square PNG image.',
     'app_homepage' => '應用程式首頁',
     'app_homepage_desc' => '選取要作為首頁的頁面，這將會取代預設首頁。選定頁面的頁面權限將會被忽略。',
@@ -52,8 +51,8 @@ return [
     'color_scheme' => 'Application Color Scheme',
     'color_scheme_desc' => 'Set the colors to use in the application user interface. Colors can be configured separately for dark and light modes to best fit the theme and ensure legibility.',
     'ui_colors_desc' => 'Set the application primary color and default link color. The primary color is mainly used for the header banner, buttons and interface decorations. The default link color is used for text-based links and actions, both within written content and in the application interface.',
-    'app_color' => 'Primary Color',
-    'link_color' => 'Default Link Color',
+    'app_color' => '主要顏色',
+    'link_color' => '連結預設顏色',
     'content_colors_desc' => 'Set colors for all elements in the page organisation hierarchy. Choosing colors with a similar brightness to the default colors is recommended for readability.',
     'bookshelf_color' => '書架顔色',
     'book_color' => '書本顔色',
@@ -232,8 +231,6 @@ return [
     'user_api_token_expiry' => '到期日',
     'user_api_token_expiry_desc' => '設定此權杖的到期日。在此日期後，使用此權杖發出的請求將不再起作用。若將此欄留空，將會設定在100年後過期。',
     'user_api_token_create_secret_message' => '建立此權杖後，將會立即生成並顯示「權杖 ID」與「權杖密碼」。該密碼將只會顯示一次，因此請在繼續操作前將其複製到安全的地方。',
-    'user_api_token_create_success' => '成功建立 API 權杖',
-    'user_api_token_update_success' => '成功更新 API 權杖',
     'user_api_token' => 'API 權杖',
     'user_api_token_id' => '權杖 ID',
     'user_api_token_id_desc' => '這是此權杖由系統生成的不可編輯識別字串，必須在 API 請求中提供。',
@@ -244,7 +241,6 @@ return [
     'user_api_token_delete' => '刪除權杖',
     'user_api_token_delete_warning' => '這將會從系統中完全刪除名為「:tokenName」的 API 權杖。',
     'user_api_token_delete_confirm' => '您確定要刪除此 API 權杖嗎？',
-    'user_api_token_delete_success' => 'API 權杖已成功刪除',
 
     // Webhooks
     'webhooks' => 'Webhooks',

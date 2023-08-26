@@ -253,6 +253,15 @@ body.flexbox {
   position: relative;
 }
 
+.fixed {
+  position: fixed;
+  z-index: 20;
+  &.top-right {
+    top: 0;
+    right: 0;
+  }
+}
+
 .hidden {
   display: none !important;
 }
@@ -287,6 +296,19 @@ body.flexbox {
       display: none !important;
     }
   }
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.screen-reader-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 /**

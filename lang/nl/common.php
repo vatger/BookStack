@@ -6,6 +6,7 @@ return [
 
     // Buttons
     'cancel' => 'Annuleer',
+    'close' => 'Sluit',
     'confirm' => 'Bevestig',
     'back' => 'Terug',
     'save' => 'Opslaan',

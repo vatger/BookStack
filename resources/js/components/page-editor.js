@@ -1,9 +1,10 @@
-import * as Dates from "../services/dates";
-import {onSelect} from "../services/dom";
-import {debounce} from "../services/util";
-import {Component} from "./component";
+import * as Dates from '../services/dates';
+import {onSelect} from '../services/dom';
+import {debounce} from '../services/util';
+import {Component} from './component';
 
 export class PageEditor extends Component {
+
     setup() {
         // Options
         this.draftsEnabled = this.$opts.draftsEnabled === 'true';
@@ -18,18 +19,23 @@ export class PageEditor extends Component {
         this.saveDraftButton = this.$refs.saveDraft;
         this.discardDraftButton = this.$refs.discardDraft;
         this.discardDraftWrap = this.$refs.discardDraftWrap;
+        this.deleteDraftButton = this.$refs.deleteDraft;
+        this.deleteDraftWrap = this.$refs.deleteDraftWrap;
         this.draftDisplay = this.$refs.draftDisplay;
         this.draftDisplayIcon = this.$refs.draftDisplayIcon;
         this.changelogInput = this.$refs.changelogInput;
         this.changelogDisplay = this.$refs.changelogDisplay;
-        this.changeEditorButtons = this.$manyRefs.changeEditor;
+        this.changeEditorButtons = this.$manyRefs.changeEditor || [];
         this.switchDialogContainer = this.$refs.switchDialog;
+        this.deleteDraftDialogContainer = this.$refs.deleteDraftDialog;
 
         // Translations
         this.draftText = this.$opts.draftText;
         this.autosaveFailText = this.$opts.autosaveFailText;
         this.editingPageText = this.$opts.editingPageText;
         this.draftDiscardedText = this.$opts.draftDiscardedText;
+        this.draftDeleteText = this.$opts.draftDeleteText;
+        this.draftDeleteFailText = this.$opts.draftDeleteFailText;
         this.setChangelogText = this.$opts.setChangelogText;
 
         // State data
@@ -58,7 +64,9 @@ export class PageEditor extends Component {
         window.$events.listen('editor-save-page', this.savePage.bind(this));
 
         // Listen to content changes from the editor
-        const onContentChange = () => this.autoSave.pendingChange = true;
+        const onContentChange = () => {
+            this.autoSave.pendingChange = true;
+        };
         window.$events.listen('editor-html-change', onContentChange);
         window.$events.listen('editor-markdown-change', onContentChange);
 
@@ -72,6 +80,7 @@ export class PageEditor extends Component {
         // Draft Controls
         onSelect(this.saveDraftButton, this.saveDraft.bind(this));
         onSelect(this.discardDraftButton, this.discardDraft.bind(this));
+        onSelect(this.deleteDraftButton, this.deleteDraft.bind(this));
 
         // Change editor controls
         onSelect(this.changeEditorButtons, this.changeEditor.bind(this));
@@ -79,7 +88,8 @@ export class PageEditor extends Component {
 
     setInitialFocus() {
         if (this.hasDefaultTitle) {
-            return this.titleElem.select();
+            this.titleElem.select();
+            return;
         }
 
         window.setTimeout(() => {
@@ -93,12 +103,12 @@ export class PageEditor extends Component {
 
     runAutoSave() {
         // Stop if manually saved recently to prevent bombarding the server
-        const savedRecently = (Date.now() - this.autoSave.last < (this.autoSave.frequency)/2);
+        const savedRecently = (Date.now() - this.autoSave.last < (this.autoSave.frequency) / 2);
         if (savedRecently || !this.autoSave.pendingChange) {
             return;
         }
 
-        this.saveDraft()
+        this.saveDraft();
     }
 
     savePage() {
@@ -115,7 +125,8 @@ export class PageEditor extends Component {
         try {
             const resp = await window.$http.put(`/ajax/page/${this.pageId}/save-draft`, data);
             if (!this.isNewDraft) {
-                this.toggleDiscardDraftVisibility(true);
+                this.discardDraftWrap.toggleAttribute('hidden', false);
+                this.deleteDraftWrap.toggleAttribute('hidden', false);
             }
 
             this.draftNotifyChange(`${resp.data.message} ${Dates.utcTimeStampToLocalTime(resp.data.timestamp)}`);
@@ -132,7 +143,9 @@ export class PageEditor extends Component {
             try {
                 const saveKey = `draft-save-fail-${(new Date()).toISOString()}`;
                 window.localStorage.setItem(saveKey, JSON.stringify(data));
-            } catch (err) {}
+            } catch (lsErr) {
+                console.error(lsErr);
+            }
 
             window.$events.emit('error', this.autosaveFailText);
         }
@@ -148,12 +161,13 @@ export class PageEditor extends Component {
         }, 2000);
     }
 
-    async discardDraft() {
+    async discardDraft(notify = true) {
         let response;
         try {
             response = await window.$http.get(`/ajax/page/${this.pageId}`);
         } catch (e) {
-            return console.error(e);
+            console.error(e);
+            return;
         }
 
         if (this.autoSave.interval) {
@@ -161,7 +175,7 @@ export class PageEditor extends Component {
         }
 
         this.draftDisplay.innerText = this.editingPageText;
-        this.toggleDiscardDraftVisibility(false);
+        this.discardDraftWrap.toggleAttribute('hidden', true);
         window.$events.emit('editor::replace', {
             html: response.data.html,
             markdown: response.data.markdown,
@@ -171,8 +185,30 @@ export class PageEditor extends Component {
         window.setTimeout(() => {
             this.startAutoSave();
         }, 1000);
-        window.$events.emit('success', this.draftDiscardedText);
 
+        if (notify) {
+            window.$events.success(this.draftDiscardedText);
+        }
+    }
+
+    async deleteDraft() {
+        /** @var {ConfirmDialog} * */
+        const dialog = window.$components.firstOnElement(this.deleteDraftDialogContainer, 'confirm-dialog');
+        const confirmed = await dialog.show();
+        if (!confirmed) {
+            return;
+        }
+
+        try {
+            const discard = this.discardDraft(false);
+            const draftDelete = window.$http.delete(`/page-revisions/user-drafts/${this.pageId}`);
+            await Promise.all([discard, draftDelete]);
+            window.$events.success(this.draftDeleteText);
+            this.deleteDraftWrap.toggleAttribute('hidden', true);
+        } catch (err) {
+            console.error(err);
+            window.$events.error(this.draftDeleteFailText);
+        }
     }
 
     updateChangelogDisplay() {
@@ -180,20 +216,16 @@ export class PageEditor extends Component {
         if (summary.length === 0) {
             summary = this.setChangelogText;
         } else if (summary.length > 16) {
-            summary = summary.slice(0, 16) + '...';
+            summary = `${summary.slice(0, 16)}...`;
         }
         this.changelogDisplay.innerText = summary;
-    }
-
-    toggleDiscardDraftVisibility(show) {
-        this.discardDraftWrap.classList.toggle('hidden', !show);
     }
 
     async changeEditor(event) {
         event.preventDefault();
 
         const link = event.target.closest('a').href;
-        /** @var {ConfirmDialog} **/
+        /** @var {ConfirmDialog} * */
         const dialog = window.$components.firstOnElement(this.switchDialogContainer, 'confirm-dialog');
         const [saved, confirmed] = await Promise.all([this.saveDraft(), dialog.show()]);
 

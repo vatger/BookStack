@@ -21,6 +21,7 @@
 @import "footer";
 @import "lists";
 @import "pages";
+@import "content";
 
 // Jquery Sortable Styles
 .dragged {
@@ -114,37 +115,6 @@ $loadingSize: 10px;
     top: $-xl;
     outline-offset: -10px;
     outline: 2px dotted var(--color-link);
-  }
-}
-
-.contained-search-box {
-  display: flex;
-  height: 38px;
-  input, button {
-    border-radius: 0;
-    border: 1px solid #ddd;
-    @include lightDark(border-color, #ddd, #000);
-    margin-inline-start: -1px;
-  }
-  input {
-    flex: 5;
-    padding: $-xs $-s;
-    &:focus, &:active {
-      outline: 0;
-    }
-  }
-  button {
-    width: 60px;
-  }
-  button i {
-    padding: 0;
-  }
-  button.cancel.active {
-    background-color: $negative;
-    color: #EEE;
-  }
-  svg {
-    margin: 0;
   }
 }
 

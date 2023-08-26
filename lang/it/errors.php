@@ -45,18 +45,20 @@ return [
     'cannot_create_thumbs' => 'Il server non può creare thumbnail. Controlla che l\'estensione GD sia installata.',
     'server_upload_limit' => 'Il server non permette un upload di questa grandezza. Prova con un file più piccolo.',
     'uploaded'  => 'Il server non consente upload di questa grandezza. Prova un file più piccolo.',
-    'file_upload_timeout' => 'Il caricamento del file è andato in timeout.',
 
     // Drawing & Images
     'image_upload_error' => 'C\'è stato un errore caricando l\'immagine',
     'image_upload_type_error' => 'Il tipo di immagine caricata non è valido',
+    'image_upload_replace_type' => 'Le sostituzioni di file immagine devono essere dello stesso tipo',
     'drawing_data_not_found' => 'Non è stato possibile caricare i dati del disegno. È possibile che il file del disegno non esista più o che non si abbia il permesso di accedervi.',
 
     // Attachments
     'attachment_not_found' => 'Allegato non trovato',
+    'attachment_upload_error' => 'Si è verificato un errore durante il caricamento del file allegato',
 
     // Pages
     'page_draft_autosave_fail' => 'Impossibile salvare la bozza. Controlla di essere connesso ad internet prima di salvare questa pagina',
+    'page_draft_delete_fail' => 'Impossibile eliminare la bozza di pagina e recuperare i contenuti salvati nella pagina corrente',
     'page_custom_home_deletion' => 'Impossibile eliminare una pagina quando è impostata come homepage',
 
     // Entities

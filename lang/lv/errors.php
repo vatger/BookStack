@@ -45,18 +45,20 @@ return [
     'cannot_create_thumbs' => 'Serveris nevar izveidot samazinātus attēlus. Lūdzu pārbaudiet, vai ir uzstādīts PHP GD paplašinājums.',
     'server_upload_limit' => 'Serveris neatļauj šāda izmēra failu ielādi. Lūdzu mēģiniet mazāka izmēra failu.',
     'uploaded'  => 'Serveris neatļauj šāda izmēra failu ielādi. Lūdzu mēģiniet mazāka izmēra failu.',
-    'file_upload_timeout' => 'Faila augšupielādē ir iestājies noilgums.',
 
     // Drawing & Images
     'image_upload_error' => 'Radās kļūda augšupielādējot attēlu',
     'image_upload_type_error' => 'Ielādējamā attēla tips nav derīgs',
+    'image_upload_replace_type' => 'Aizvietojot attēlu tipiem ir jābūt vienādiem',
     'drawing_data_not_found' => 'Attēla datus nevarēja ielādēt. Attēla fails, iespējams, vairs neeksistē, vai arī jums varētu nebūt piekļuves tiesības tam.',
 
     // Attachments
     'attachment_not_found' => 'Pielikums nav atrasts',
+    'attachment_upload_error' => 'Radās kļūda augšupielādējot pievienoto failu',
 
     // Pages
     'page_draft_autosave_fail' => 'Neizdevās saglabāt uzmetumu. Pārliecinieties, ka jūsu interneta pieslēgums ir aktīvs pirms saglabājiet šo lapu',
+    'page_draft_delete_fail' => 'Neizdevās izdzēst lapas melnrakstu un iegūt pašreizējās lapas saglabāto saturu',
     'page_custom_home_deletion' => 'Nav iespējams izdzēst lapu kamēr tā ir uzstādīta kā sākumlapa',
 
     // Entities

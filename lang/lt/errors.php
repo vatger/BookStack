@@ -45,18 +45,20 @@ return [
     'cannot_create_thumbs' => 'Serveris negali sukurti miniatiūros. Prašome patikrinkite, ar turite įdiegtą GD PHP plėtinį.',
     'server_upload_limit' => 'Serveris neleidžia įkelti tokio dydžio failų. Prašome bandykite mažesnį failo dydį.',
     'uploaded'  => 'Serveris neleidžia įkelti tokio dydžio failų. Prašome bandykite mažesnį failo dydį.',
-    'file_upload_timeout' => 'Failo įkėlimo laikas baigėsi',
 
     // Drawing & Images
     'image_upload_error' => 'Įvyko klaida įkeliant vaizdą',
     'image_upload_type_error' => 'Vaizdo tipas, kurį norima įkelti, yra neteisingas',
+    'image_upload_replace_type' => 'Image file replacements must be of the same type',
     'drawing_data_not_found' => 'Drawing data could not be loaded. The drawing file might no longer exist or you may not have permission to access it.',
 
     // Attachments
     'attachment_not_found' => 'Priedas nerastas',
+    'attachment_upload_error' => 'An error occurred uploading the attachment file',
 
     // Pages
     'page_draft_autosave_fail' => 'Juodraščio išsaugoti nepavyko. Įsitikinkite, jog turite interneto ryšį prieš išsaugant šį paslapį.',
+    'page_draft_delete_fail' => 'Failed to delete page draft and fetch current page saved content',
     'page_custom_home_deletion' => 'Negalima ištrinti šio puslapio, kol jis yra nustatytas kaip pagrindinis puslapis',
 
     // Entities

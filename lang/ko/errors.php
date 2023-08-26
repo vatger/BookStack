@@ -45,18 +45,20 @@ return [
     'cannot_create_thumbs' => '섬네일을 못 만들었습니다. PHP에 GD 확장 도구를 설치하세요.',
     'server_upload_limit' => '파일 크기가 서버에서 허용하는 수치를 넘습니다.',
     'uploaded'  => '파일 크기가 서버에서 허용하는 수치를 넘습니다.',
-    'file_upload_timeout' => '파일을 올리는 데 걸리는 시간이 서버에서 허용하는 수치를 넘습니다.',
 
     // Drawing & Images
     'image_upload_error' => '이미지를 올리다 문제가 생겼습니다.',
     'image_upload_type_error' => '유효하지 않은 이미지 형식입니다.',
+    'image_upload_replace_type' => 'Image file replacements must be of the same type',
     'drawing_data_not_found' => 'Drawing data could not be loaded. The drawing file might no longer exist or you may not have permission to access it.',
 
     // Attachments
     'attachment_not_found' => '첨부 파일이 없습니다.',
+    'attachment_upload_error' => 'An error occurred uploading the attachment file',
 
     // Pages
     'page_draft_autosave_fail' => '초안 문서를 유실했습니다. 인터넷 연결 상태를 확인하세요.',
+    'page_draft_delete_fail' => 'Failed to delete page draft and fetch current page saved content',
     'page_custom_home_deletion' => '처음 페이지는 지울 수 없습니다.',
 
     // Entities

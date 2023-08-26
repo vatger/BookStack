@@ -1,5 +1,7 @@
 /vendor
 /node_modules
+/.vscode
+/composer
 Homestead.yaml
 .env
 .idea
@@ -21,9 +23,11 @@ yarn.lock
 nbproject
 .buildpath
 .project
+.nvmrc
 .settings/
 webpack-stats.json
 .phpunit.result.cache
 .DS_Store
 phpstan.neon
 composer.lock
+esbuild-meta.json

@@ -45,18 +45,20 @@ return [
     'cannot_create_thumbs' => 'A kiszolgáló nem tud létrehozni bélyegképeket. Ellenőrizni kell, hogy telepítve van-a a GD PHP kiterjesztés.',
     'server_upload_limit' => 'A kiszolgáló nem engedélyez ilyen méretű feltöltéseket. Kisebb fájlmérettel kell próbálkozni.',
     'uploaded'  => 'A kiszolgáló nem engedélyez ilyen méretű feltöltéseket. Kisebb fájlmérettel kell próbálkozni.',
-    'file_upload_timeout' => 'A fáj feltöltése időtúllépést okozott.',
 
     // Drawing & Images
     'image_upload_error' => 'Hiba történt a kép feltöltése közben',
     'image_upload_type_error' => 'A feltöltött kép típusa érvénytelen',
+    'image_upload_replace_type' => 'Image file replacements must be of the same type',
     'drawing_data_not_found' => 'Drawing data could not be loaded. The drawing file might no longer exist or you may not have permission to access it.',
 
     // Attachments
     'attachment_not_found' => 'Csatolmány nem található',
+    'attachment_upload_error' => 'An error occurred uploading the attachment file',
 
     // Pages
     'page_draft_autosave_fail' => 'Nem sikerült a vázlat mentése. Mentés előtt meg kell róla győződni, hogy van internetkapcsolat',
+    'page_draft_delete_fail' => 'Failed to delete page draft and fetch current page saved content',
     'page_custom_home_deletion' => 'Nem lehet oldalt törölni ha kezdőlapnak van beállítva',
 
     // Entities

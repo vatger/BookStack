@@ -45,18 +45,20 @@ return [
     'cannot_create_thumbs' => 'Strežnik ne more izdelati sličice. Prosimo preverite če imate GD PHP razširitev nameščeno.',
     'server_upload_limit' => 'Strežnik ne dovoli nalaganj take velikosti. Prosimo poskusite z manjšo velikostjo datoteke.',
     'uploaded'  => 'Strežnik ne dovoli nalaganj take velikosti. Prosimo poskusite zmanjšati velikost datoteke.',
-    'file_upload_timeout' => 'Čas nalaganjanja datoteke je potekel.',
 
     // Drawing & Images
     'image_upload_error' => 'Prišlo je do napake med nalaganjem slike',
     'image_upload_type_error' => 'Napačen tip (format) slike',
+    'image_upload_replace_type' => 'Image file replacements must be of the same type',
     'drawing_data_not_found' => 'Drawing data could not be loaded. The drawing file might no longer exist or you may not have permission to access it.',
 
     // Attachments
     'attachment_not_found' => 'Priloga ni najdena',
+    'attachment_upload_error' => 'An error occurred uploading the attachment file',
 
     // Pages
     'page_draft_autosave_fail' => 'Osnutka ni bilo mogoče shraniti. Pred shranjevanjem te strani se prepričajte, da imate internetno povezavo',
+    'page_draft_delete_fail' => 'Failed to delete page draft and fetch current page saved content',
     'page_custom_home_deletion' => 'Ne morem izbrisati strani, ki je nastavljena kot domača stran',
 
     // Entities

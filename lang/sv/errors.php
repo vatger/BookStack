@@ -45,18 +45,20 @@ return [
     'cannot_create_thumbs' => 'Servern kan inte skapa miniatyrer. Kontrollera att du har PHPs GD-tillägg aktiverat.',
     'server_upload_limit' => 'Servern tillåter inte så här stora filer. Prova en mindre fil.',
     'uploaded'  => 'Servern tillåter inte så här stora filer. Prova en mindre fil.',
-    'file_upload_timeout' => 'Filuppladdningen har tagits ut.',
 
     // Drawing & Images
     'image_upload_error' => 'Ett fel inträffade vid uppladdningen',
     'image_upload_type_error' => 'Filtypen du försöker ladda upp är ogiltig',
+    'image_upload_replace_type' => 'Image file replacements must be of the same type',
     'drawing_data_not_found' => 'Drawing data could not be loaded. The drawing file might no longer exist or you may not have permission to access it.',
 
     // Attachments
     'attachment_not_found' => 'Bilagan hittades ej',
+    'attachment_upload_error' => 'An error occurred uploading the attachment file',
 
     // Pages
     'page_draft_autosave_fail' => 'Kunde inte spara utkastet. Kontrollera att du är ansluten till internet.',
+    'page_draft_delete_fail' => 'Failed to delete page draft and fetch current page saved content',
     'page_custom_home_deletion' => 'Det går inte att ta bort sidan medan den används som startsida',
 
     // Entities

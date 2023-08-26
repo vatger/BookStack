@@ -26,7 +26,7 @@ class ThemeEvents
      * the type before making use of this parameter.
      *
      * @param string                                $type
-     * @param string|\BookStack\Interfaces\Loggable $detail
+     * @param string|\BookStack\Activity\Models\Loggable $detail
      */
     const ACTIVITY_LOGGED = 'activity_logged';
 
@@ -34,7 +34,7 @@ class ThemeEvents
      * Application boot-up.
      * After main services are registered.
      *
-     * @param \BookStack\Application $app
+     * @param \BookStack\App\Application $app
      */
     const APP_BOOT = 'app_boot';
 
@@ -45,7 +45,7 @@ class ThemeEvents
      * after registration. This is not emitted upon API usage.
      *
      * @param string               $authSystem
-     * @param \BookStack\Auth\User $user
+     * @param \BookStack\Users\Models\User $user
      */
     const AUTH_LOGIN = 'auth_login';
 
@@ -56,7 +56,7 @@ class ThemeEvents
      * by LDAP, SAML and social systems. It only includes self-registrations.
      *
      * @param string               $authSystem
-     * @param \BookStack\Auth\User $user
+     * @param \BookStack\Users\Models\User $user
      */
     const AUTH_REGISTER = 'auth_register';
 
@@ -69,6 +69,19 @@ class ThemeEvents
      * @returns \League\CommonMark\Environment\Environment|null
      */
     const COMMONMARK_ENVIRONMENT_CONFIGURE = 'commonmark_environment_configure';
+
+    /**
+     * OIDC ID token pre-validate event.
+     * Runs just before BookStack validates the user ID token data upon login.
+     * Provides the existing found set of claims for the user as a key-value array,
+     * along with an array of the proceeding access token data provided by the identity platform.
+     * If the listener returns a non-null value, that will replace the existing ID token claim data.
+     *
+     * @param array $idTokenData
+     * @param array $accessTokenData
+     * @returns array|null
+     */
+    const OIDC_ID_TOKEN_PRE_VALIDATE = 'oidc_id_token_pre_validate';
 
     /**
      * Page include parse event.
@@ -119,11 +132,12 @@ class ThemeEvents
      * If the listener returns a non-null value, that will be used as the POST data instead
      * of the system default.
      *
-     * @param string                                $event
-     * @param \BookStack\Actions\Webhook            $webhook
-     * @param string|\BookStack\Interfaces\Loggable $detail
-     * @param \BookStack\Auth\User                  $initiator
-     * @param int                                   $initiatedTime
+     * @param string                                     $event
+     * @param \BookStack\Activity\Models\Webhook         $webhook
+     * @param string|\BookStack\Activity\Models\Loggable $detail
+     * @param \BookStack\Users\Models\User               $initiator
+     * @param int                                        $initiatedTime
+     * @returns array|null
      */
     const WEBHOOK_CALL_BEFORE = 'webhook_call_before';
 }

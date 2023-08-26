@@ -9,68 +9,106 @@ return [
     'page_create'                 => 'telah membuat halaman',
     'page_create_notification'    => 'Jenis Halaman berhasil dibuat',
     'page_update'                 => 'halaman telah diperbaharui',
-    'page_update_notification'    => 'Page successfully updated',
+    'page_update_notification'    => 'Halaman berhasil diperbarui',
     'page_delete'                 => 'halaman dihapus',
-    'page_delete_notification'    => 'Page successfully deleted',
+    'page_delete_notification'    => 'Halaman berhasil dihapus',
     'page_restore'                => 'halaman telah dipulihkan',
-    'page_restore_notification'   => 'Page successfully restored',
+    'page_restore_notification'   => 'Halaman berhasil dipulihkan',
     'page_move'                   => 'halaman dipindahkan',
+    'page_move_notification'      => 'Page successfully moved',
 
     // Chapters
     'chapter_create'              => 'membuat bab',
-    'chapter_create_notification' => 'Chapter successfully created',
+    'chapter_create_notification' => 'Bab berhasil dibuat',
     'chapter_update'              => 'bab diperbaharui',
-    'chapter_update_notification' => 'Chapter successfully updated',
+    'chapter_update_notification' => 'Bab berhasil diperbarui',
     'chapter_delete'              => 'hapus bab',
-    'chapter_delete_notification' => 'Chapter successfully deleted',
+    'chapter_delete_notification' => 'Bab berhasil dihapus',
     'chapter_move'                => 'bab dipindahkan',
+    'chapter_move_notification' => 'Chapter successfully moved',
 
     // Books
     'book_create'                 => 'membuat buku',
-    'book_create_notification'    => 'Book successfully created',
-    'book_create_from_chapter'              => 'converted chapter to book',
-    'book_create_from_chapter_notification' => 'Chapter successfully converted to a book',
+    'book_create_notification'    => 'Buku berhasil dibuat',
+    'book_create_from_chapter'              => 'mengkonversi bab ke buku',
+    'book_create_from_chapter_notification' => 'Bab berhasil dikonversi menjadi buku',
     'book_update'                 => 'update buku',
-    'book_update_notification'    => 'Book successfully updated',
+    'book_update_notification'    => 'Buku berhasil diperbarui',
     'book_delete'                 => 'hapus buku',
-    'book_delete_notification'    => 'Book successfully deleted',
+    'book_delete_notification'    => 'Buku berhasil dihapus',
     'book_sort'                   => 'buku yang diurutkan',
-    'book_sort_notification'      => 'Book successfully re-sorted',
+    'book_sort_notification'      => 'Buku berhasil diurutkan',
 
     // Bookshelves
-    'bookshelf_create'            => 'created shelf',
-    'bookshelf_create_notification'    => 'Shelf successfully created',
-    'bookshelf_create_from_book'    => 'converted book to shelf',
-    'bookshelf_create_from_book_notification'    => 'Book successfully converted to a shelf',
-    'bookshelf_update'                 => 'updated shelf',
-    'bookshelf_update_notification'    => 'Shelf successfully updated',
-    'bookshelf_delete'                 => 'deleted shelf',
-    'bookshelf_delete_notification'    => 'Shelf successfully deleted',
+    'bookshelf_create'            => 'membuat rak',
+    'bookshelf_create_notification'    => 'Rak berhasil dibuat',
+    'bookshelf_create_from_book'    => 'mengkonversi buku ke rak',
+    'bookshelf_create_from_book_notification'    => 'Buku berhasil dikonversi menjadi rak',
+    'bookshelf_update'                 => 'memperbarui rak',
+    'bookshelf_update_notification'    => 'Rak berhasil diperbarui',
+    'bookshelf_delete'                 => 'menghapus rak',
+    'bookshelf_delete_notification'    => 'Rak berhasil dihapus',
+
+    // Revisions
+    'revision_restore' => 'restored revision',
+    'revision_delete' => 'deleted revision',
+    'revision_delete_notification' => 'Revision successfully deleted',
 
     // Favourites
     'favourite_add_notification' => '":name" telah ditambahkan ke favorit Anda',
     'favourite_remove_notification' => '":name" telah dihapus dari favorit Anda',
 
-    // MFA
+    // Auth
+    'auth_login' => 'logged in',
+    'auth_register' => 'registered as new user',
+    'auth_password_reset_request' => 'requested user password reset',
+    'auth_password_reset_update' => 'reset user password',
+    'mfa_setup_method' => 'configured MFA method',
     'mfa_setup_method_notification' => 'Metode multi-faktor sukses dikonfigurasi',
+    'mfa_remove_method' => 'removed MFA method',
     'mfa_remove_method_notification' => 'Metode multi-faktor sukses dihapus',
 
+    // Settings
+    'settings_update' => 'updated settings',
+    'settings_update_notification' => 'Settings successfully updated',
+    'maintenance_action_run' => 'ran maintenance action',
+
     // Webhooks
-    'webhook_create' => 'created webhook',
-    'webhook_create_notification' => 'Webhook successfully created',
-    'webhook_update' => 'updated webhook',
-    'webhook_update_notification' => 'Webhook successfully updated',
-    'webhook_delete' => 'deleted webhook',
-    'webhook_delete_notification' => 'Webhook successfully deleted',
+    'webhook_create' => 'membuat webhook',
+    'webhook_create_notification' => 'Webhook berhasil dibuat',
+    'webhook_update' => 'memperbarui webhook',
+    'webhook_update_notification' => 'Webhook berhasil diperbarui',
+    'webhook_delete' => 'menghapus webhook',
+    'webhook_delete_notification' => 'Webhook berhasil dihapus',
 
     // Users
-    'user_update_notification' => 'User successfully updated',
-    'user_delete_notification' => 'User successfully removed',
+    'user_create' => 'created user',
+    'user_create_notification' => 'User successfully created',
+    'user_update' => 'updated user',
+    'user_update_notification' => 'Pengguna berhasil diperbarui',
+    'user_delete' => 'deleted user',
+    'user_delete_notification' => 'Pengguna berhasil dihapus',
+
+    // API Tokens
+    'api_token_create' => 'created api token',
+    'api_token_create_notification' => 'API token successfully created',
+    'api_token_update' => 'updated api token',
+    'api_token_update_notification' => 'API token successfully updated',
+    'api_token_delete' => 'deleted api token',
+    'api_token_delete_notification' => 'API token successfully deleted',
 
     // Roles
-    'role_create_notification' => 'Role successfully created',
-    'role_update_notification' => 'Role successfully updated',
-    'role_delete_notification' => 'Role successfully deleted',
+    'role_create' => 'created role',
+    'role_create_notification' => 'Peran berhasil dibuat',
+    'role_update' => 'updated role',
+    'role_update_notification' => 'Peran berhasil diperbarui',
+    'role_delete' => 'deleted role',
+    'role_delete_notification' => 'Peran berhasil dihapus',
+
+    // Recycle Bin
+    'recycle_bin_empty' => 'emptied recycle bin',
+    'recycle_bin_restore' => 'restored from recycle bin',
+    'recycle_bin_destroy' => 'removed from recycle bin',
 
     // Other
     'commented_on'                => 'berkomentar pada',

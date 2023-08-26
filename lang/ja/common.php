@@ -6,6 +6,7 @@ return [
 
     // Buttons
     'cancel' => 'キャンセル',
+    'close' => '閉じる',
     'confirm' => '確認',
     'back' => '戻る',
     'save' => '保存',
@@ -68,7 +69,7 @@ return [
     'back_to_top' => '上に戻る',
     'skip_to_main_content' => 'メインコンテンツへスキップ',
     'toggle_details' => '概要の表示切替',
-    'toggle_thumbnails' => 'Toggle Thumbnails',
+    'toggle_thumbnails' => 'サムネイルの切り替え',
     'details' => '詳細',
     'grid_view' => 'グリッド形式',
     'list_view' => 'リスト形式',

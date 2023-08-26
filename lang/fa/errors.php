@@ -45,18 +45,20 @@ return [
     'cannot_create_thumbs' => 'سرور نمی تواند تصاویر کوچک ایجاد کند. لطفاً بررسی کنید که پسوند GD PHP را نصب کرده اید.',
     'server_upload_limit' => 'سرور اجازه آپلود در این اندازه را نمی دهد. لطفا اندازه فایل کوچکتر را امتحان کنید.',
     'uploaded'  => 'سرور اجازه آپلود در این اندازه را نمی دهد. لطفا اندازه فایل کوچکتر را امتحان کنید.',
-    'file_upload_timeout' => 'زمان بارگذاری فایل به پایان رسیده است.',
 
     // Drawing & Images
     'image_upload_error' => 'هنگام آپلود تصویر خطایی روی داد',
     'image_upload_type_error' => 'نوع تصویر در حال آپلود نامعتبر است',
-    'drawing_data_not_found' => 'Drawing data could not be loaded. The drawing file might no longer exist or you may not have permission to access it.',
+    'image_upload_replace_type' => 'Image file replacements must be of the same type',
+    'drawing_data_not_found' => 'داده های طرح قابل بارگذاری نیستند. ممکن است فایل طرح دیگر وجود نداشته باشد یا شما به آن دسترسی نداشته باشید.',
 
     // Attachments
     'attachment_not_found' => 'پیوست یافت نشد',
+    'attachment_upload_error' => 'An error occurred uploading the attachment file',
 
     // Pages
     'page_draft_autosave_fail' => 'پیش نویس ذخیره نشد. قبل از ذخیره این صفحه مطمئن شوید که به اینترنت متصل هستید',
+    'page_draft_delete_fail' => 'Failed to delete page draft and fetch current page saved content',
     'page_custom_home_deletion' => 'وقتی صفحه ای به عنوان صفحه اصلی تنظیم شده است، نمی توان آن را حذف کرد',
 
     // Entities
