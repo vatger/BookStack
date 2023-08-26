@@ -333,11 +333,9 @@ Route::post('/password/reset', [AccessControllers\ResetPasswordController::class
 
 Route::prefix('authentication')->group(function () {
     Route::prefix('connect')->group(function () {
-        Route::get('login', [Auth\VATSIMConnectController::class, 'login'])->name('vatsim.authentication.connect.login');
-        Route::get('logout', [Auth\VATSIMConnectController::class, 'logout'])->name('vatsim.authentication.connect.logout');
-        Route::get('failed', function (\BookStack\Http\Request $request) {
-            return redirect('/');
-        })->name('vatsim.authentication.connect.failed');
+        Route::get('login', [AccessControllers\VATSIMConnectController::class, 'login'])->name('vatsim.authentication.connect.login');
+        Route::get('logout', [AccessControllers\VATSIMConnectController::class, 'logout'])->name('vatsim.authentication.connect.logout');
+        Route::get('failed', [AccessControllers\VATSIMConnectController::class, 'failed'])->name('vatsim.authentication.connect.failed');
     });
 });
 

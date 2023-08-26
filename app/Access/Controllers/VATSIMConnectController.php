@@ -1,19 +1,17 @@
 <?php
 
 
-namespace BookStack\Http\Controllers\Auth;
+namespace BookStack\Access\Controllers;
 
-use BookStack\Auth\Role;
 use BookStack\Providers\ConnectProvider;
-use BookStack\Auth\User;
-use BookStack\Http\Controllers\Controller;
+use BookStack\Http\Controller;
+use BookStack\Users\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use UnexpectedValueException;
@@ -22,9 +20,8 @@ class VATSIMConnectController extends Controller
 {
     /**
      * The VATSIM Authentication Provider Instance
-     * @var ConnectProvider
      */
-    protected $_provider;
+    protected ConnectProvider $_provider;
 
     /**
      * Initialize the Controller with a new ConnectProvider instance
@@ -37,9 +34,6 @@ class VATSIMConnectController extends Controller
     /**
      * Authentication entrypoint
      * This function will handle the state and request of an authentication attempt
-     *
-     * @param Request
-     * @return RedirectResponse|Redirect
      */
     public function login(Request $request)
     {
@@ -111,7 +105,7 @@ class VATSIMConnectController extends Controller
         }
 
         if (User::query()->where('email', $resourceOwner->data->personal->email)->exists()) {
-            //return redirect()->route('vatsim.authentication.connect.failed');
+            return redirect()->route('vatsim.authentication.connect.failed');
         }
 
         // All checks completed. Let's finally sign in the user
@@ -185,20 +179,16 @@ class VATSIMConnectController extends Controller
     /**
      * Display a failed message and then return to the login
      *
-     * @param Request $request
-     * @return RedirectResponse
      */
     public function failed(Request $request): RedirectResponse
     {
-        return redirect()->route('landing')->withErrors('Error logging in. Please try again.');
+        return redirect('/')->withErrors('Error logging in. Please try again.');
     }
 
     /**
      * End an authenticated session
-     *
-     * @return Redirect
      */
-    public function logout()
+    public function logout(): RedirectResponse
     {
         Auth::logout();
 
