@@ -6,11 +6,13 @@ use BookStack\Access\Mfa\MfaValue;
 use BookStack\Access\SocialAccount;
 use BookStack\Activity\Models\Favourite;
 use BookStack\Activity\Models\Loggable;
+use BookStack\Activity\Models\Watch;
 use BookStack\Api\ApiToken;
 use BookStack\App\Model;
 use BookStack\App\Sluggable;
 use BookStack\Entities\Tools\SlugGenerator;
 use BookStack\Notifications\ResetPassword;
+use BookStack\Translation\LanguageManager;
 use BookStack\Uploads\Image;
 use Carbon\Carbon;
 use Exception;
@@ -93,8 +95,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     /**
      * This holds the default user when loaded.
-     *
-     * @var null|User
      */
     protected static ?User $defaultUser = null;
 
@@ -110,6 +110,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         static::$defaultUser = static::query()->where('system_name', '=', 'public')->first();
 
         return static::$defaultUser;
+    }
+
+    public static function clearDefault(): void
+    {
+        static::$defaultUser = null;
     }
 
     /**
@@ -293,6 +298,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     /**
+     * Get the tracked entity watches for this user.
+     */
+    public function watches(): HasMany
+    {
+        return $this->hasMany(Watch::class);
+    }
+
+    /**
      * Get the last activity time for this user.
      */
     public function scopeWithLastActivityAt(Builder $query)
@@ -340,6 +353,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         */
 
         return strval($this->id);
+    }
+
+    /**
+     * Get the system language for this user.
+     */
+    public function getLanguage(): string
+    {
+        return app()->make(LanguageManager::class)->getLanguageForUser($this);
     }
 
     /**
