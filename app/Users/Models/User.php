@@ -28,6 +28,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
+use Laravel\Sanctum\HasApiTokens;
+use Laravel\Sanctum\NewAccessToken;
+use Laravel\Sanctum\Sanctum;
+
 
 /**
  * Class User.
@@ -65,7 +70,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @var array
      */
-    protected $fillable = ['name', 'email'];
+    protected $fillable = ['id', 'name', 'fullname', 'email', 'slug'];
 
     protected $casts = ['last_activity_at' => 'datetime'];
 
@@ -326,6 +331,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     public function getShortName(int $chars = 8): string
     {
+        /*
         if (mb_strlen($this->name) <= $chars) {
             return $this->name;
         }
@@ -334,8 +340,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         if (mb_strlen($splitName[0]) <= $chars) {
             return $splitName[0];
         }
+        */
 
-        return mb_substr($this->name, 0, max($chars - 2, 0)) . '…';
+        return strval($this->id);
     }
 
     /**

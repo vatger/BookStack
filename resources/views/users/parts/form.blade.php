@@ -14,12 +14,12 @@
     <div class="grid half mt-m gap-xl mb-l">
         <div>
             <label for="name">{{ trans('auth.name') }}</label>
-            @include('form.text', ['name' => 'name'])
+            @include('form.text', ['name' => 'name', 'disabled' => true])
         </div>
         <div>
             @if($authMethod !== 'ldap' || userCan('users-manage'))
                 <label for="email">{{ trans('auth.email') }}</label>
-                @include('form.text', ['name' => 'email', 'disabled' => !userCan('users-manage')])
+                @include('form.text', ['name' => 'email', 'disabled' => true])
             @endif
         </div>
     </div>
@@ -36,6 +36,7 @@
     </div>
 </div>
 
+@if(userCan('users-manage'))
 <div>
     <label for="role" class="setting-list-label">{{ trans('settings.users_role') }}</label>
     <p class="small">{{ trans('settings.users_role_desc') }}</p>
@@ -43,6 +44,8 @@
         @include('form.role-checkboxes', ['name' => 'roles', 'roles' => $roles])
     </div>
 </div>
+
+@endif
 
 @if($authMethod === 'standard')
     <div component="new-user-password">

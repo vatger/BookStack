@@ -136,15 +136,15 @@ class UserController extends Controller
         $this->checkPermission('users-manage');
 
         $validated = $this->validate($request, [
-            'name'             => ['min:2', 'max:100'],
-            'email'            => ['min:2', 'email', 'unique:users,email,' . $id],
-            'password'         => ['required_with:password_confirm', Password::default()],
-            'password-confirm' => ['same:password', 'required_with:password'],
+            //'name'             => ['min:2', 'max:100'],
+            //'email'            => ['min:2', 'email', 'unique:users,email,' . $id],
+            //'password'         => ['required_with:password_confirm', Password::default()],
+            //'password-confirm' => ['same:password', 'required_with:password'],
             'language'         => ['string', 'max:15', 'alpha_dash'],
             'roles'            => ['array'],
             'roles.*'          => ['integer'],
-            'external_auth_id' => ['string'],
-            'profile_image'    => array_merge(['nullable'], $this->getImageValidationRules()),
+            //'external_auth_id' => ['string'],
+            //'profile_image'    => array_merge(['nullable'], $this->getImageValidationRules()),
         ]);
 
         $user = $this->userRepo->getById($id);
@@ -156,7 +156,7 @@ class UserController extends Controller
             $this->imageRepo->destroyImage($user->avatar);
             $image = $this->imageRepo->saveNew($imageUpload, 'user', $user->id);
             $user->image_id = $image->id;
-            $user->save();
+            //$user->save();
         }
 
         // Delete the profile image if reset option is in request
