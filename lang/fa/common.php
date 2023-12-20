@@ -42,7 +42,7 @@ return [
     'remove' => 'حذف',
     'add' => 'ﺍﻓﺰﻭﺩﻥ',
     'configure' => 'پیکربندی کنید',
-    'manage' => 'Manage',
+    'manage' => 'مدیریت تنظیمات',
     'fullscreen' => 'تمام صفحه',
     'favourite' => 'علاقه‌مندی',
     'unfavourite' => 'حذف از علاقه‌مندی',
@@ -52,6 +52,7 @@ return [
     'filter_clear' => 'پاک کردن فیلتر',
     'download' => 'دانلود',
     'open_in_tab' => 'باز کردن در تب جدید',
+    'open' => 'بازکردن',
 
     // Sort Options
     'sort_options' => 'گزینه‌های مرتب سازی',
@@ -70,7 +71,7 @@ return [
     'back_to_top' => 'بازگشت به بالا',
     'skip_to_main_content' => 'رفتن به محتوای اصلی',
     'toggle_details' => 'معکوس کردن اطلاعات',
-    'toggle_thumbnails' => 'معکوس ریز عکس ها',
+    'toggle_thumbnails' => 'معکوس کردن ریزعکس‌ها',
     'details' => 'جزییات',
     'grid_view' => 'نمایش شبکه‌ای',
     'list_view' => 'نمای لیست',

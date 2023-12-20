@@ -10,7 +10,9 @@
 [![Repo Stats](https://img.shields.io/static/v1?label=GitHub+project&message=stats&color=f27e3f)](https://gh-stats.bookstackapp.com/)
 [![Discord](https://img.shields.io/static/v1?label=Discord&message=chat&color=738adb&logo=discord)](https://discord.gg/ztkBqR2)
 [![Mastodon](https://img.shields.io/static/v1?label=Mastodon&message=@bookstack&color=595aff&logo=mastodon)](https://fosstodon.org/@bookstack)
-[![Twitter](https://img.shields.io/static/v1?label=Twitter&message=@bookstack_app&color=1d9bf0&logo=twitter)](https://twitter.com/bookstack_app)
+[![X - Formerly Twitter](https://img.shields.io/static/v1?label=Follow&message=@bookstack_app&color=1d9bf0&logo=x)](https://x.com/bookstack_app)
+
+[![PeerTube](https://img.shields.io/static/v1?label=PeerTube&message=bookstack@foss.video&color=f2690d&logo=peertube)](https://foss.video/c/bookstack)
 [![YouTube](https://img.shields.io/static/v1?label=YouTube&message=bookstackapp&color=ff0000&logo=youtube)](https://www.youtube.com/bookstackapp)
 
 A platform for storing and organising information and documentation. Details for BookStack can be found on the official website at https://www.bookstackapp.com/.
@@ -23,6 +25,7 @@ A platform for storing and organising information and documentation. Details for
 * [BookStack Blog](https://www.bookstackapp.com/blog)
 * [Issue List](https://github.com/BookStackApp/BookStack/issues)
 * [Discord Chat](https://discord.gg/ztkBqR2)
+* [Support Options](https://www.bookstackapp.com/support/)
 
 ## 📚 Project Definition
 
@@ -36,8 +39,9 @@ In regard to development philosophy, BookStack has a relaxed, open & positive ap
 
 Shown below are our bronze, silver and gold project sponsors.
 Big thanks to these companies for supporting the project.
-Note: Listed services are not tested, vetted nor supported by the official BookStack project in any manner.
-[View all sponsors](https://github.com/sponsors/ssddanbrown).
+*Note: The listed services are not tested, vetted nor supported by the official BookStack project in any manner.*
+
+[Project donation details](https://www.bookstackapp.com/donate/) - [GitHub Sponsors Page](https://github.com/sponsors/ssddanbrown) - [Ko-fi Page](https://ko-fi.com/ssddanbrown)
 
 #### Silver Sponsors
 
@@ -50,14 +54,23 @@ Note: Listed services are not tested, vetted nor supported by the official BookS
 #### Bronze Sponsors
 
 <table><tbody><tr>
-<td><a href="https://www.stellarhosted.com/bookstack/" target="_blank">
-    <img width="240" src="https://media.githubusercontent.com/media/BookStackApp/website/main/static/images/sponsors/stellarhosted.png" alt="Stellar Hosted">
+<td><a href="https://cloudabove.com/hosting" target="_blank">
+    <img width="240" src="https://media.githubusercontent.com/media/BookStackApp/website/main/static/images/sponsors/cloudabove.png" alt="Cloudabove">
 </a></td>
 <td><a href="https://www.practicali.be" target="_blank">
     <img width="240" src="https://media.githubusercontent.com/media/BookStackApp/website/main/static/images/sponsors/practicali.png" alt="Practicali">
 </a></td>
+</tr><tr>
+<td><a href="https://www.stellarhosted.com/bookstack/" target="_blank">
+    <img width="240" src="https://media.githubusercontent.com/media/BookStackApp/website/main/static/images/sponsors/stellarhosted.png" alt="Stellar Hosted">
+</a></td>
 <td><a href="https://torutec.com/" target="_blank">
     <img width="240" src="https://media.githubusercontent.com/media/BookStackApp/website/main/static/images/sponsors/torutec.png" alt="Torutec">
+</a></td>
+</tr>
+<tr>
+<td colspan="2" align="center" style="text-align: center"><a href="https://nws.netways.de/apps/bookstack/" target="_blank">
+    <img width="240" src="https://media.githubusercontent.com/media/BookStackApp/website/main/static/images/sponsors/netways.png" alt="NETWAYS Web Services">
 </a></td>
 </tr></tbody></table>
 
@@ -80,7 +93,9 @@ Details about BookStack's versioning scheme and the general release process [can
 
 ## 🌎 Translations
 
-Translations for text within BookStack is managed through the [BookStack project on Crowdin](https://crowdin.com/project/bookstack). Some strings have colon-prefixed variables such as `:userName`. Leave these values as they are as they will be replaced at run-time. Crowdin is the preferred way to provide translations, otherwise the raw translations files can be found within the `resources/lang` path.
+Translations for text within BookStack is managed through the [BookStack project on Crowdin](https://crowdin.com/project/bookstack). Some strings have colon-prefixed variables such as `:userName`. Leave these values as they are as they will be replaced at run-time.
+
+Please use [Crowdin](https://crowdin.com/project/bookstack) to contribute translations instead of opening a pull request. The translations within the working codebase can be out-of-date, and merging via code can cause conflicts & sync issues. If for some reason you can't use Crowdin feel free to open an issue to discuss alternative options. 
 
 If you'd like a new language to be added to Crowdin, for you to be able to provide translations for, please [open a new issue here](https://github.com/BookStackApp/BookStack/issues/new?template=language_request.yml).
 
@@ -88,9 +103,9 @@ Please note, translations in BookStack are provided to the "Crowdin Global Trans
 
 ## 🎁 Contributing, Issues & Pull Requests
 
-Feel free to create issues to request new features or to report bugs & problems. Just please follow the template given when creating the issue.
+Feel free to [create issues](https://github.com/BookStackApp/BookStack/issues/new/choose) to request new features or to report bugs & problems. Just please follow the template given when creating the issue.
 
-Pull requests are welcome. Unless a small tweak or language update, It may be best to open the pull request early or create an issue for your intended change to discuss how it will fit into the project and plan out the merge. Just because a feature request exists, or is tagged, does not mean that feature would be accepted into the core project.
+Pull requests are welcome but, unless it's a small tweak, it may be best to open the pull request early or create an issue for your intended change to discuss how it will fit into the project and plan out the merge. Just because a feature request exists, or is tagged, does not mean that feature would be accepted into the core project.
 
 Pull requests should be created from the `development` branch since they will be merged back into `development` once done. Please do not build from or request a merge into the `release` branch as this is only for publishing releases. If you are looking to alter CSS or JavaScript content please edit the source files found in `resources/`. Any CSS or JS files within `public` are built from these source files and therefore should not be edited directly.
 

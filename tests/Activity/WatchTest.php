@@ -66,7 +66,7 @@ class WatchTest extends TestCase
 
         $this->actingAs($editor)->get($book->getUrl());
         $resp = $this->put('/watching/update', [
-            'type' => get_class($book),
+            'type' => $book->getMorphClass(),
             'id' => $book->id,
             'level' => 'comments'
         ]);
@@ -81,7 +81,7 @@ class WatchTest extends TestCase
         ]);
 
         $resp = $this->put('/watching/update', [
-            'type' => get_class($book),
+            'type' => $book->getMorphClass(),
             'id' => $book->id,
             'level' => 'default'
         ]);
@@ -101,7 +101,7 @@ class WatchTest extends TestCase
         $book = $this->entities->book();
 
         $resp = $this->put('/watching/update', [
-            'type' => get_class($book),
+            'type' => $book->getMorphClass(),
             'id' => $book->id,
             'level' => 'comments'
         ]);
@@ -210,16 +210,22 @@ class WatchTest extends TestCase
         $prefs = new UserNotificationPreferences($editor);
         $prefs->updateFromSettingsArray(['comment-replies' => 'true']);
 
+        // Create some existing comments to pad IDs to help potentially error
+        // on mis-identification of parent via ids used.
+        Comment::factory()->count(5)
+            ->for($entities['page'], 'entity')
+            ->create(['created_by' => $this->users->admin()->id]);
+
         $notifications = Notification::fake();
 
         $this->actingAs($editor)->post("/comment/{$entities['page']->id}", [
             'text' => 'My new comment'
         ]);
-        $comment = $entities['page']->comments()->first();
+        $comment = $entities['page']->comments()->orderBy('id', 'desc')->first();
 
         $this->asAdmin()->post("/comment/{$entities['page']->id}", [
             'text' => 'My new comment response',
-            'parent_id' => $comment->id,
+            'parent_id' => $comment->local_id,
         ]);
         $notifications->assertSentTo($editor, CommentCreationNotification::class);
     }
@@ -330,7 +336,10 @@ class WatchTest extends TestCase
         $activities = [
             ActivityType::PAGE_CREATE => $entities['page'],
             ActivityType::PAGE_UPDATE => $entities['page'],
-            ActivityType::COMMENT_CREATE => (new Comment([]))->forceFill(['entity_id' => $entities['page']->id, 'entity_type' => $entities['page']->getMorphClass()]),
+            ActivityType::COMMENT_CREATE => Comment::factory()->make([
+                'entity_id' => $entities['page']->id,
+                'entity_type' => $entities['page']->getMorphClass(),
+            ]),
         ];
 
         $notifications = Notification::fake();
