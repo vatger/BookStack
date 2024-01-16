@@ -31,3 +31,4 @@ webpack-stats.json
 phpstan.neon
 composer.lock
 esbuild-meta.json
+.phpactor.json
