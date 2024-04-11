@@ -20,7 +20,7 @@ return [
     'description' => 'Kuvaus',
     'role' => 'Rooli',
     'cover_image' => 'Kansikuva',
-    'cover_image_description' => 'Kuvan tulee olla noin 440x250px.',
+    'cover_image_description' => 'Kuvan tulee olla noin 440x250 pikselin kokoinen. Kuvan koko ja rajaus voi vaihdella käyttötilanteesta riippuen.',
 
     // Actions
     'actions' => 'Toiminnot',
