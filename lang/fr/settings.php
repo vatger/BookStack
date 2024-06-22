@@ -222,7 +222,7 @@ return [
     'users_api_tokens_desc' => 'Créer et gérer les jetons d\'accès utilisés pour s\'authentifier avec l\'API REST de BookStack. Les permissions pour l\'API sont gérées par l\'utilisateur auquel le jeton appartient.',
     'users_api_tokens_none' => 'Aucun jeton API n\'a été créé pour cet utilisateur',
     'users_api_tokens_create' => 'Créer un jeton',
-    'users_api_tokens_expires' => 'Expiré',
+    'users_api_tokens_expires' => 'Expire',
     'users_api_tokens_docs' => 'Documentation de l\'API',
     'users_mfa' => 'Authentification multi-facteurs',
     'users_mfa_desc' => 'Configurer l\'authentification multi-facteurs ajoute une couche supplémentaire de sécurité à votre compte utilisateur.',
@@ -276,6 +276,14 @@ return [
     'webhooks_last_errored' => 'Dernier en erreur :',
     'webhooks_last_error_message' => 'Dernier message d\'erreur : ',
 
+    // Licensing
+    'licenses' => 'Licences',
+    'licenses_desc' => 'Cette page détaille les informations de licence pour BookStack ainsi que les projets et librairies utilisées dans BookStack. Nombre des projets listés peuvent n\'être utilisés que dans un contexte de développement.',
+    'licenses_bookstack' => 'Licences BookStack',
+    'licenses_php' => 'Licences de librairies PHP',
+    'licenses_js' => 'Licences de librairies JavaScript',
+    'licenses_other' => 'Autres Licences',
+    'license_details' => 'Détails de la licence',
 
     //! If editing translations files directly please ignore this in all
     //! languages apart from en. Content will be auto-copied from en.

@@ -327,7 +327,7 @@ return [
     'attachments_explain_instant_save' => '此處的變動將會立刻儲存。',
     'attachments_upload' => '上傳檔案',
     'attachments_link' => '附加連結',
-    'attachments_upload_drop' => 'Alternatively you can drag and drop a file here to upload it as an attachment.',
+    'attachments_upload_drop' => '你也可以將檔案拖曳到此來上傳附加檔案',
     'attachments_set_link' => '設定連結',
     'attachments_delete' => '您確定要刪除此附件嗎？',
     'attachments_dropzone' => 'Drop files here to upload',
@@ -379,7 +379,7 @@ return [
     'comment_updated_success' => '評論已更新',
     'comment_delete_confirm' => '您確定要刪除這則評論？',
     'comment_in_reply_to' => '回覆 :commentId',
-    'comment_editor_explain' => 'Here are the comments that have been left on this page. Comments can be added & managed when viewing the saved page.',
+    'comment_editor_explain' => '此為頁面上的評論。在查看檢視與儲存頁面的同時，可以新增和管理評論。',
 
     // Revision
     'revision_delete_confirm' => '您確定要刪除此修訂版本嗎？',
@@ -412,9 +412,9 @@ return [
     'references_to_desc' => 'Listed below is all the known content in the system that links to this item.',
 
     // Watch Options
-    'watch' => 'Watch',
+    'watch' => '追蹤',
     'watch_title_default' => '預設偏好設定',
-    'watch_desc_default' => 'Revert watching to just your default notification preferences.',
+    'watch_desc_default' => '還原成預設的通知設定',
     'watch_title_ignore' => 'Ignore',
     'watch_desc_ignore' => 'Ignore all notifications, including those from user-level preferences.',
     'watch_title_new' => 'New Pages',
@@ -427,9 +427,9 @@ return [
     'watch_desc_comments_page' => 'Notify upon page changes and new comments.',
     'watch_change_default' => 'Change default notification preferences',
     'watch_detail_ignore' => 'Ignoring notifications',
-    'watch_detail_new' => 'Watching for new pages',
-    'watch_detail_updates' => 'Watching new pages and updates',
-    'watch_detail_comments' => 'Watching new pages, updates & comments',
+    'watch_detail_new' => '追蹤新頁面',
+    'watch_detail_updates' => '追蹤新頁面與異動',
+    'watch_detail_comments' => '追蹤新頁面、自動與評論',
     'watch_detail_parent_book' => 'Watching via parent book',
     'watch_detail_parent_book_ignore' => 'Ignoring via parent book',
     'watch_detail_parent_chapter' => 'Watching via parent chapter',

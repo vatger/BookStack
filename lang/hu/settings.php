@@ -109,7 +109,7 @@ return [
     'recycle_bin_contents_empty' => 'A lomtár jelenleg üres',
     'recycle_bin_empty' => 'Lomtár kiürítése',
     'recycle_bin_empty_confirm' => 'Ezzel véglegesen megsemmisíti a lomtárban lévő összes elemet, beleértve az egyes tételekben található tartalmat is. Biztos benne, hogy ki akarja üríteni a lomtárat?',
-    'recycle_bin_destroy_confirm' => 'This action will permanently delete this item from the system, along with any child elements listed below, and you will not be able to restore this content. Are you sure you want to permanently delete this item?',
+    'recycle_bin_destroy_confirm' => 'Ez a művelet véglegesen törli ezt az elemet a rendszerből az alább felsorolt összes alárendelt elemmel együtt, és nem fogja tudni visszaállítani ezt a tartalmat. Biztosan véglegesen törli ezt az elemet?',
     'recycle_bin_destroy_list' => 'Megsemmisítendő elemek',
     'recycle_bin_restore_list' => 'Visszaállítandó elemek',
     'recycle_bin_restore_confirm' => 'Ez a művelet visszaállítja a törölt elemet, beleértve az utódelemeket is, az eredeti helyükre. Ha az eredeti helyet azóta törölték, és most a lomtárban van, akkor a szülőelemet is vissza kell állítani.',
@@ -276,6 +276,14 @@ return [
     'webhooks_last_errored' => 'Utolsó hiba:',
     'webhooks_last_error_message' => 'Utolsó hibaüzenet:',
 
+    // Licensing
+    'licenses' => 'Licenszek',
+    'licenses_desc' => 'Ez az oldal a BookStack licencinformációit részletezi, a BookStackben használt projekteken és könyvtárakon kívül. Sok felsorolt projekt csak fejlesztési környezetben használható.',
+    'licenses_bookstack' => 'BookStack Licensz',
+    'licenses_php' => 'PHP könyvtár licencek',
+    'licenses_js' => 'JavaScript könyvtár licencek',
+    'licenses_other' => 'Egyéb licencek',
+    'license_details' => 'Licenc részletek',
 
     //! If editing translations files directly please ignore this in all
     //! languages apart from en. Content will be auto-copied from en.

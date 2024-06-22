@@ -34,7 +34,7 @@ return [
     'app_logo' => '應用程式圖示',
     'app_logo_desc' => '這個設定會被使用在應用程式標題欄等區域；圖片的高度應為 86 像素，大型圖片將會按比例縮小。',
     'app_icon' => '應用程式圖示',
-    'app_icon_desc' => 'This icon is used for browser tabs and shortcut icons. This should be a 256px square PNG image.',
+    'app_icon_desc' => '這個圖示將顯示在瀏覽器分頁以及捷徑，應為 256 像素的的正方形 PNG 圖片',
     'app_homepage' => '應用程式首頁',
     'app_homepage_desc' => '選取要作為首頁的頁面，這將會取代預設首頁。選定頁面的頁面權限將會被忽略。',
     'app_homepage_select' => '選取頁面',
@@ -136,7 +136,8 @@ return [
     // Role Settings
     'roles' => '角色',
     'role_user_roles' => '使用者角色',
-    'roles_index_desc' => 'Roles are used to group users & provide system permission to their members. When a user is a member of multiple roles the privileges granted will stack and the user will inherit all abilities.',
+    'roles_index_desc' => '「角色」用於將系統權限套用至使用者群組。當使用者擁有多角色時，
+使用者會自動繼承角色中的所有系統權限',
     'roles_x_users_assigned' => ':count user assigned|:count users assigned',
     'roles_x_permissions_provided' => ':count permission|:count permissions',
     'roles_assigned_users' => 'Assigned Users',
@@ -276,6 +277,14 @@ return [
     'webhooks_last_errored' => '上次錯誤',
     'webhooks_last_error_message' => '上次錯誤信息',
 
+    // Licensing
+    'licenses' => '授權',
+    'licenses_desc' => '本頁提供 BookStack 使用到的專案以及函式庫的詳細授權資料，其中部份專案及函式庫僅開開發環境中使用。',
+    'licenses_bookstack' => 'BookStack 授權',
+    'licenses_php' => 'PHP 函式庫授權',
+    'licenses_js' => 'JavaScript 函式庫授權',
+    'licenses_other' => '其它授權',
+    'license_details' => '詳細授權資料',
 
     //! If editing translations files directly please ignore this in all
     //! languages apart from en. Content will be auto-copied from en.

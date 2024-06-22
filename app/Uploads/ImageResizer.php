@@ -6,8 +6,14 @@ use BookStack\Exceptions\ImageUploadException;
 use Exception;
 use GuzzleHttp\Psr7\Utils;
 use Illuminate\Support\Facades\Cache;
-use Intervention\Image\Gd\Driver;
-use Intervention\Image\Image as InterventionImage;
+use Intervention\Image\Decoders\BinaryImageDecoder;
+use Intervention\Image\Drivers\Gd\Decoders\NativeObjectDecoder;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\Encoders\AutoEncoder;
+use Intervention\Image\Encoders\PngEncoder;
+use Intervention\Image\Interfaces\ImageInterface as InterventionImage;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Origin;
 
 class ImageResizer
 {
@@ -95,7 +101,7 @@ class ImageResizer
         }
 
         // If not in cache and thumbnail does not exist, generate thumb and cache path
-        $thumbData = $this->resizeImageData($imageData, $width, $height, $keepRatio);
+        $thumbData = $this->resizeImageData($imageData, $width, $height, $keepRatio, $this->getExtension($image));
         $disk->put($thumbFilePath, $thumbData, true);
         Cache::put($thumbCacheKey, $thumbFilePath, static::THUMBNAIL_CACHE_TIME);
 
@@ -116,7 +122,7 @@ class ImageResizer
         ?string $format = null,
     ): string {
         try {
-            $thumb = $this->interventionFromImageData($imageData);
+            $thumb = $this->interventionFromImageData($imageData, $format);
         } catch (Exception $e) {
             throw new ImageUploadException(trans('errors.cannot_create_thumbs'));
         }
@@ -124,15 +130,17 @@ class ImageResizer
         $this->orientImageToOriginalExif($thumb, $imageData);
 
         if ($keepRatio) {
-            $thumb->resize($width, $height, function ($constraint) {
-                $constraint->aspectRatio();
-                $constraint->upsize();
-            });
+            $thumb->scaleDown($width, $height);
         } else {
-            $thumb->fit($width, $height);
+            $thumb->cover($width, $height);
         }
 
-        $thumbData = (string) $thumb->encode($format);
+        $encoder = match ($format) {
+            'png' => new PngEncoder(),
+            default => new AutoEncoder(),
+        };
+
+        $thumbData = (string) $thumb->encode($encoder);
 
         // Use original image data if we're keeping the ratio
         // and the resizing does not save any space.
@@ -148,10 +156,23 @@ class ImageResizer
      * Performs some manual library usage to ensure image is specifically loaded
      * from given binary data instead of data being misinterpreted.
      */
-    protected function interventionFromImageData(string $imageData): InterventionImage
+    protected function interventionFromImageData(string $imageData, ?string $fileType): InterventionImage
     {
-        $driver = new Driver();
-        return $driver->decoder->initFromBinary($imageData);
+        $manager = new ImageManager(new Driver());
+
+        // Ensure gif images are decoded natively instead of deferring to intervention GIF
+        // handling since we don't need the added animation support.
+        $isGif = $fileType === 'gif';
+        $decoder = $isGif ? NativeObjectDecoder::class : BinaryImageDecoder::class;
+        $input = $isGif ? @imagecreatefromstring($imageData) : $imageData;
+
+        $image = $manager->read($input, $decoder);
+
+        if ($isGif) {
+            $image->setOrigin(new Origin('image/gif'));
+        }
+
+        return $image;
     }
 
     /**
@@ -202,7 +223,15 @@ class ImageResizer
      */
     protected function isGif(Image $image): bool
     {
-        return strtolower(pathinfo($image->path, PATHINFO_EXTENSION)) === 'gif';
+        return $this->getExtension($image) === 'gif';
+    }
+
+    /**
+     * Get the extension for the given image, normalised to lower-case.
+     */
+    protected function getExtension(Image $image): string
+    {
+        return strtolower(pathinfo($image->path, PATHINFO_EXTENSION));
     }
 
     /**

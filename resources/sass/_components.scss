@@ -182,7 +182,7 @@
   flex: 0;
   .popup-title {
     color: #FFF;
-    margin-right: auto;
+    margin-inline-end: auto;
     padding: 8px $-m;
   }
   &.flex-container-row {
@@ -320,6 +320,10 @@ body.flexbox-support #entity-selector-wrap .popup-body .form-group {
   height: 3px;
   background-color: var(--color-primary);
   transition: width ease-in-out 240ms;
+}
+.dropzone-file-item-label {
+  line-height: 1.2;
+  margin-bottom: .2rem;
 }
 .dropzone-file-item-label,
 .dropzone-file-item-status {

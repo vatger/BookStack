@@ -347,7 +347,7 @@ Taygun Yıldırım (yildirimtaygun) :: Turkish
 robing29 :: German
 Bruno Eduardo de Jesus Barroso (brunoejb) :: Portuguese, Brazilian
 Igor V Belousov (biv) :: Russian
-David Bauer (davbauer) :: German
+David Bauer (davbauer) :: German; German Informal
 Guttorm Hveem (guttormhveem) :: Norwegian Nynorsk; Norwegian Bokmal
 Minh Giang Truong (minhgiang1204) :: Vietnamese
 Ioannis Ioannides (i.ioannides) :: Greek
@@ -389,7 +389,7 @@ Marc Hagen (MarcHagen) :: Dutch
 Kasper Alsøe (zeonos) :: Danish
 sultani :: Persian
 renge :: Korean
-TheGatesDev (thegatesdev) :: Dutch
+Tim (thegatesdev) :: Dutch; German Informal; French; Romanian; Catalan; Czech; Danish; German; Finnish; Hungarian; Italian; Japanese; Korean; Polish; Russian; Ukrainian; Chinese Simplified; Chinese Traditional; Portuguese, Brazilian; Persian; Spanish, Argentina; Croatian; Norwegian Nynorsk; Estonian; Uzbek; Norwegian Bokmal
 Irdi (irdiOL) :: Albanian
 KateBarber :: Welsh
 Twister (theuncles75) :: Hebrew
@@ -410,3 +410,22 @@ cracrayol :: French
 CapuaSC :: Dutch
 Guardian75 :: German Informal
 mr-kanister :: German
+Michele Bastianelli (makoblaster) :: Italian
+jespernissen :: Danish
+Andrey (avmaksimov) :: Russian
+Gonzalo Loyola (AlFcl) :: Spanish, Argentina; Spanish
+grobert63 :: French
+wusst. (Supporti) :: German
+MaximMaximS :: Czech
+damian-klima :: Slovak
+crow_ :: Latvian
+JocelynDelalande :: French
+Jan (JW-CH) :: German Informal
+Timo B (lommes) :: German Informal
+Erik Lundstedt (Erik.Lundstedt) :: Swedish
+yngams (younessmouhid) :: Arabic
+Ohadp :: Hebrew
+cbridi :: Portuguese, Brazilian
+nanangsb :: Indonesian
+Michal Melich (michalmelich) :: Czech
+David (david-prv) :: German
