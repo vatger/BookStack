@@ -28,7 +28,7 @@ class VatgerConnectProvider extends GenericProvider
     public function getMappedData(AccessToken $accessToken): array
     {
         $resourceOwner = json_decode(json_encode($this->getResourceOwner($accessToken)->toArray()));
-        $token_valid = $resourceOwner?->data?->oauth?->token_valid;
+        $token_valid = true; // idk
         return [
             'id' => $resourceOwner?->id,
             'firstname' => $resourceOwner?->firstname,
