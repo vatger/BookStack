@@ -1,5 +1,6 @@
 <?php
 return [
+    'name' => env('VATSIM_OAUTH_NAME', 'VATSIM Connect'),
     'base' => env('VATSIM_OAUTH_BASE', 'https://auth-dev.vatsim.net'),
     'id' => env('VATSIM_OAUTH_CLIENT', 0),
     'secret' => env('VATSIM_OAUTH_SECRET', ''),
