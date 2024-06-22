@@ -86,7 +86,7 @@ class ConnectController extends Controller
             return redirect('/')->withErrors('Connect error');
         }
         // All checks completed. Let's finally sign in the user
-        $user = $this->completeLogin($resourceOwner, $accessToken);
+        $user = $this->completeLogin($data);
 
         Auth::login($user, true);
         if ($request->has('email')) {
