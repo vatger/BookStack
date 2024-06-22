@@ -16,7 +16,7 @@ class VatsimConnectProvider extends GenericProvider
         parent::__construct([
                 'clientId'                => config('connect.id'),
                 'clientSecret'            => config('connect.secret'),
-                'redirectUri'             => route('vatsim.authentication.connect.login'),
+                'redirectUri'             => route('authentication.connect.login'),
                 'urlAuthorize'            => config('connect.endpoints.authorize'),
                 'urlAccessToken'          => config('connect.endpoints.token'),
                 'urlResourceOwnerDetails' => config('connect.endpoints.user'),
