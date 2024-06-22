@@ -24,7 +24,7 @@
                         <p class="text-small mb-none">{{ trans('preferences.profile_name_desc') }}</p>
                     </div>
                     <div class="flex stretch-inputs">
-                        @include('form.text', ['name' => 'name'])
+                        @include('form.text', ['name' => 'name', 'disabled' => true])
                     </div>
                 </div>
 
@@ -35,7 +35,7 @@
                             <p class="text-small mb-none">{{ trans('preferences.profile_email_desc') }}</p>
                         </div>
                         <div class="flex stretch-inputs">
-                            @include('form.text', ['name' => 'email', 'disabled' => !userCan('users-manage')])
+                            @include('form.text', ['name' => 'email', 'disabled' => true])
                         </div>
                     </div>
                     @if(!userCan('users-manage'))
@@ -49,6 +49,7 @@
                                class="setting-list-label">{{ trans('settings.users_avatar') }}</label>
                         <p class="text-small">{{ trans('preferences.profile_avatar_desc') }}</p>
                     </div>
+                    {{--
                     <div>
                         @include('form.image-picker', [
                             'resizeHeight' => '512',
@@ -60,6 +61,7 @@
                             'name' => 'profile_image',
                             'imageClass' => 'avatar large'
                         ])
+                        --}}
                     </div>
                 </div>
 
