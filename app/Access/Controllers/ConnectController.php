@@ -1,9 +1,8 @@
 <?php
 
-
 namespace BookStack\Access\Controllers;
 
-use BookStack\App\Providers\ConnectProvider;
+use BookStack\App\Providers\VatsimConnectProvider;
 use BookStack\Http\Controller;
 use BookStack\Users\Models\User;
 use Illuminate\Http\RedirectResponse;
@@ -16,19 +15,19 @@ use Illuminate\Support\Str;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use UnexpectedValueException;
 
-class VATSIMConnectController extends Controller
+class ConnectController extends Controller
 {
     /**
-     * The VATSIM Authentication Provider Instance
+     * The Authentication Provider Instance
      */
-    protected ConnectProvider $_provider;
+    protected VatsimConnectProvider $provider;
 
     /**
      * Initialize the Controller with a new ConnectProvider instance
      */
-    function __construct()
+    public function __construct()
     {
-        $this->_provider = new ConnectProvider();
+        $this->provider = new VatsimConnectProvider();
     }
 
     /**
@@ -37,11 +36,6 @@ class VATSIMConnectController extends Controller
      */
     public function login(Request $request)
     {
-
-        // Use this line only if you want to test the "LOCAL" backup authentication
-        // while developing. NEVER USE IT IN PRODUCTION
-        // if(config('app.env') !== 'production') return redirect()->route('vatsim.authentication.connect.local');
-
         // Initiation state is without 'code' and 'state'
         if (!$request->has('code') || !$request->has('state')) {
             try {
@@ -50,58 +44,58 @@ class VATSIMConnectController extends Controller
                 // 2. If available: Prepare the authentication url and send the user away to it
                 $response = \Illuminate\Support\Facades\Http::timeout(30)->get(config('vatsim.authentication.connect.base'));
                 if ($response->status() < 500 || $response->status() > 599) {
-                    $authenticationUrl = $this->_provider->getAuthorizationUrl();
-                    $request->session()->put('vatsim.authentication.connect.state', $this->_provider->getState());
+                    $authenticationUrl = $this->provider->getAuthorizationUrl();
+                    $request->session()->put('authentication.connect.state', $this->provider->getState());
                     return redirect()->away($authenticationUrl);
                 } else {
                     // Send the user to the service unavailable page
-                    Log::info("[ConnectController]::login::response::Status=" . $response->status() . ' ' . $response->reason());
-                    return redirect()->route('vatsim.authentication.connect.failed');
+                    return redirect('/')->withErrors('Connect error');
                 }
-
             } catch (\Illuminate\Http\Client\ConnectionException $ce) {
                 // Send the user to the service unavailable page
-                return redirect()->route('vatsim.authentication.connect.failed');
+                return redirect('/')->withErrors('Connect error');
             }
-        } elseif ($request->input('state') !== session()->pull('vatsim.authentication.connect.state')) {
+        } elseif ($request->input('state') !== session()->pull('authentication.connect.state')) {
             // Within this state there is no state. The only option here is to start again.
             $request->session()->invalidate(); // Invalidate and regenerate the session
-            return redirect()->route('vatsim.authentication.connect.login');
+            return redirect()->route('authentication.connect.login');
         } else {
-            return $this->_verifyLogin($request);
+            return $this->verifyLogin($request);
         }
     }
 
     /**
      * Check that all required data is received from the VATSIM Connect authentication system
      */
-    protected function _verifyLogin(Request $request)
+    protected function verifyLogin(Request $request)
     {
         try {
-            $accessToken = $this->_provider->getAccessToken('authorization_code', [
+            $accessToken = $this->provider->getAccessToken('authorization_code', [
                 'code' => $request->input('code')
             ]);
         } catch (UnexpectedValueException $e) {
             Log::error("[ConnectController]::_verifyLogin::AccessToken::" . $e->getMessage());
-            return redirect()->route('vatsim.authentication.connect.failed'); // Wrong format received from the Connect service
+            return redirect('/')->withErrors('Connect error'); // Wrong format received from the Connect service
         } catch (IdentityProviderException $e) {
             Log::error("[ConnectController]::_verifyLogin::AccessToken::" . $e->getMessage());
-            return redirect()->route('vatsim.authentication.connect.failed');
+            return redirect('/')->withErrors('Connect error');
         }
 
         try {
-            $resourceOwner = json_decode(json_encode($this->_provider->getResourceOwner($accessToken)->toArray()));
+            $resourceOwner = json_decode(json_encode($this->provider->getResourceOwner($accessToken)->toArray()));
             // $resourceOwner = $this->_provider->getResourceOwner($accessToken);
         } catch (UnexpectedValueException $e) {
             Log::error("[ConnectController]::_verifyLogin::ResourceOwner::" . $e->getMessage());
-            return redirect()->route('vatsim.authentication.connect.failed');
+            return redirect('/')->withErrors('Connect error');
         }
 
-        if (!isset($resourceOwner->data) || !isset($resourceOwner->data->cid) || !isset($resourceOwner->data->personal->name_first) || !isset($resourceOwner->data->personal->name_last) || !isset($resourceOwner->data->personal->email) || $resourceOwner->data->oauth->token_valid !== "true") {
-            return redirect()->route('vatsim.authentication.connect.failed');
+        $data = $this->provider->getMappedData($accessToken);
+
+        if (!isset($data['id']) || !isset($data['firstname']) || !isset($data['lastname']) || !isset($data['email']) || !isset($data['access_token'])) {
+            return redirect('/')->withErrors('Connect error');
         }
         // All checks completed. Let's finally sign in the user
-        $user = $this->_completeLogin($resourceOwner, $accessToken);
+        $user = $this->completeLogin($resourceOwner, $accessToken);
 
         Auth::login($user, true);
         if ($request->has('email')) {
@@ -116,25 +110,24 @@ class VATSIMConnectController extends Controller
     /**
      * Complete the authentication process.
      *
-     * @param Object $resourceOwner
-     * @param Object $accessToken
+     * @param array $data
      * @return User
      */
-    protected function _completeLogin($resourceOwner, $accessToken)
+    protected function completeLogin(array $data): User
     {
-        $user = User::query()->find($resourceOwner->data->cid);
+        $user = User::query()->find($data['id']);
 
         if (!$user) {
             // Create random user slug
-            $value = $resourceOwner->data->cid;
+            $value = $data['id'];
             $slug = Str::slug($value, "-");
 
             // We need to create a new user here
             $user = User::query()->create([
-                'id' => $resourceOwner->data->cid,
-                'name' => $resourceOwner->data->cid,
-                'fullname' => $resourceOwner->data->personal->name_first . ' ' . $resourceOwner->data->personal->name_last,
-                'email' => $resourceOwner->data->personal->email,
+                'id' => $data['id'],
+                'name' => $data['id'],
+                'fullname' => $data['firstname'] . ' ' . $data['lastname'],
+                'email' =>  $data['email'],
                 'slug' => $slug
             ]);
 
@@ -145,23 +138,20 @@ class VATSIMConnectController extends Controller
             ]);
 
             // If the user has given us permanent access to the data
-            if ($resourceOwner->data->oauth->token_valid) {
-                $user->access_token = $accessToken->getToken();
-                $user->refresh_token = $accessToken->getRefreshToken();
-                $user->token_expires = $accessToken->getExpires();
+            if ($data['token_valid']) {
+                $user->access_token = $data['access_token'];
+                $user->refresh_token = $data['refresh_token'];
+                $user->token_expires = $data['token_expires'];
             }
-
-
         } else {
             // We know the user exists, so we need to update their account data
             $user->update([
-                'name' => $resourceOwner->data->cid,
-                'fullname' => $resourceOwner->data->personal->name_first . ' ' . $resourceOwner->data->personal->name_last,
-                'email' => $resourceOwner->data->personal->email,
+                'name' => $data['id'],
+                'fullname' => $data['firstname'] . ' ' . $data['lastname'],
+                'email' => $data['email'],
             ]);
 
             //$user->tokens()->delete();
-
         }
         //$user->createToken('api-token');
 
@@ -174,7 +164,7 @@ class VATSIMConnectController extends Controller
      */
     public function failed(): RedirectResponse
     {
-        return redirect('/')->with('error','Error logging in. Please try again.');
+        return redirect('/')->with('error', 'Error logging in. Please try again.');
     }
 
     /**
