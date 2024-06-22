@@ -2,6 +2,7 @@
 
 namespace BookStack\Access\Controllers;
 
+use BookStack\App\Providers\VatgerConnectProvider;
 use BookStack\App\Providers\VatsimConnectProvider;
 use BookStack\Http\Controller;
 use BookStack\Users\Models\User;
@@ -10,7 +11,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use UnexpectedValueException;
@@ -20,14 +20,14 @@ class ConnectController extends Controller
     /**
      * The Authentication Provider Instance
      */
-    protected VatsimConnectProvider $provider;
+    protected VatgerConnectProvider $provider;
 
     /**
      * Initialize the Controller with a new ConnectProvider instance
      */
     public function __construct()
     {
-        $this->provider = new VatsimConnectProvider();
+        $this->provider = new VatgerConnectProvider();
     }
 
     /**

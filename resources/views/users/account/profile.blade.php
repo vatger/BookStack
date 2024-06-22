@@ -61,8 +61,8 @@
                             'name' => 'profile_image',
                             'imageClass' => 'avatar large'
                         ])
-                        --}}
                     </div>
+                    --}}
                 </div>
 
                 @include('users.parts.language-option-row', ['value' => old('language') ?? user()->getLocale()->appLocale()])
