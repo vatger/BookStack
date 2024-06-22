@@ -39,18 +39,9 @@ class ConnectController extends Controller
         // Initiation state is without 'code' and 'state'
         if (!$request->has('code') || !$request->has('state')) {
             try {
-                // Initiate the authentication process using VATSIM Connect
-                // 1. Test if the service is available at all.
-                // 2. If available: Prepare the authentication url and send the user away to it
-                $response = \Illuminate\Support\Facades\Http::timeout(30)->get(config('vatsim.authentication.connect.base'));
-                if ($response->status() < 500 || $response->status() > 599) {
-                    $authenticationUrl = $this->provider->getAuthorizationUrl();
-                    $request->session()->put('authentication.connect.state', $this->provider->getState());
-                    return redirect()->away($authenticationUrl);
-                } else {
-                    // Send the user to the service unavailable page
-                    return redirect('/')->withErrors('Connect error');
-                }
+                $authenticationUrl = $this->provider->getAuthorizationUrl();
+                $request->session()->put('authentication.connect.state', $this->provider->getState());
+                return redirect()->away($authenticationUrl);
             } catch (\Illuminate\Http\Client\ConnectionException $ce) {
                 // Send the user to the service unavailable page
                 return redirect('/')->withErrors('Connect error');
