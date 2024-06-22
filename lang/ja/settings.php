@@ -109,7 +109,7 @@ return [
     'recycle_bin_contents_empty' => 'ごみ箱は現在空です',
     'recycle_bin_empty' => 'ごみ箱を空にする',
     'recycle_bin_empty_confirm' => 'ごみ箱のすべてのアイテムが、各アイテムに含まれるコンテンツも含めて完全に削除されます。本当にごみ箱を空にしますか？',
-    'recycle_bin_destroy_confirm' => 'この操作により、このアイテムと以下にリストされている子要素がシステムから完全に削除され、このコンテンツを復元できなくなります。このアイテムを完全に削除してもよろしいですか？',
+    'recycle_bin_destroy_confirm' => 'この操作を行うと、子要素を含めた以下のリストに示すアイテムがシステムから完全に削除され、このコンテンツを復元できなくなります。このアイテムを完全に削除してもよろしいですか？',
     'recycle_bin_destroy_list' => '削除されるアイテム',
     'recycle_bin_restore_list' => '復元されるアイテム',
     'recycle_bin_restore_confirm' => 'この操作により、すべての子要素を含む削除されたアイテムが元の場所に復元されます。元の場所が削除されてごみ箱に入っている場合は、親アイテムも復元する必要があります。',
@@ -276,6 +276,14 @@ return [
     'webhooks_last_errored' => '最後のエラー:',
     'webhooks_last_error_message' => '最後のエラーのメッセージ:',
 
+    // Licensing
+    'licenses' => 'ライセンス',
+    'licenses_desc' => 'このページではBookStackとBookStackで使用されるプロジェクトやライブラリのライセンス情報を詳しく説明します。開発環境でのみ使用するものも多数含まれています。',
+    'licenses_bookstack' => 'BookStack ライセンス',
+    'licenses_php' => 'PHPライブラリライセンス',
+    'licenses_js' => 'JavaScriptライブラリライセンス',
+    'licenses_other' => 'その他のライセンス',
+    'license_details' => 'ライセンス詳細',
 
     //! If editing translations files directly please ignore this in all
     //! languages apart from en. Content will be auto-copied from en.

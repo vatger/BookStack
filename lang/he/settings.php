@@ -109,7 +109,7 @@ return [
     'recycle_bin_contents_empty' => 'סל המיחזור כרגע ריק',
     'recycle_bin_empty' => 'רוקן את סל המיחזור',
     'recycle_bin_empty_confirm' => 'פעולה זו תשמיד לצמיתות את כל הפריטים בסל המיחזור, לרבות התוכן בכל פריט. אתם בטוחים שאתם מעוניינים לרוקן את סל המיחזור?',
-    'recycle_bin_destroy_confirm' => 'פעולה זו תמחק מהמערכת לצמיתות פריט זה, יחד עם כל פריטי-הבן ברשימה להלן, ולא תוכלו לאחזר תוכל זה. אתם בטוחים שברצונכם למחוק לצמיתות פריט זה?',
+    'recycle_bin_destroy_confirm' => 'This action will permanently delete this item from the system, along with any child elements listed below, and you will not be able to restore this content. Are you sure you want to permanently delete this item?',
     'recycle_bin_destroy_list' => 'פריטים שיושמדו',
     'recycle_bin_restore_list' => 'פריטים שיאוחזרו',
     'recycle_bin_restore_confirm' => 'פעולה זו תאחזר את הפריט שנמחק, לרבות רכיבי-הבן שלו, למיקומו המקורי. אם המיקום המקורי נמחק מאז, וכעת נמצא בסל המיחזור, יש לאחזר גם את פריט-האב.',
@@ -276,6 +276,14 @@ return [
     'webhooks_last_errored' => 'Last Errored:',
     'webhooks_last_error_message' => 'Last Error Message:',
 
+    // Licensing
+    'licenses' => 'Licenses',
+    'licenses_desc' => 'This page details license information for BookStack in addition to the projects & libraries that are used within BookStack. Many projects listed may only be used in a development context.',
+    'licenses_bookstack' => 'BookStack License',
+    'licenses_php' => 'PHP Library Licenses',
+    'licenses_js' => 'JavaScript Library Licenses',
+    'licenses_other' => 'Other Licenses',
+    'license_details' => 'License Details',
 
     //! If editing translations files directly please ignore this in all
     //! languages apart from en. Content will be auto-copied from en.

@@ -109,7 +109,7 @@ return [
     'recycle_bin_contents_empty' => 'Roskakori on tällä hetkellä tyhjä',
     'recycle_bin_empty' => 'Tyhjennä roskakori',
     'recycle_bin_empty_confirm' => 'Tämä tuhoaa pysyvästi kaikki kohteet roskakorissa, mukaan lukien kunkin kohteen sisältämän sisällön. Haluatko varmasti tyhjentää roskakorin?',
-    'recycle_bin_destroy_confirm' => 'Tämä toiminto poistaa tämän kohteen ja kaikki alla luetellut sisältyvät kohteet pysyvästi järjestelmästä, etkä voi enää palauttaa tätä sisältöä. Haluatko varmasti poistaa tämän kohteen pysyvästi?',
+    'recycle_bin_destroy_confirm' => 'This action will permanently delete this item from the system, along with any child elements listed below, and you will not be able to restore this content. Are you sure you want to permanently delete this item?',
     'recycle_bin_destroy_list' => 'Poistettavat kohteet',
     'recycle_bin_restore_list' => 'Palautettavat kohteet',
     'recycle_bin_restore_confirm' => 'Tämä toiminto palauttaa poistetun kohteen, mukaan lukien kaikki siihen sisältyvät kohteet, alkuperäiseen sijaintiinsa. Jos alkuperäinen sijainti on sittemmin poistettu ja on nyt roskakorissa, myös sitä koskeva kohde on palautettava.',
@@ -276,6 +276,14 @@ return [
     'webhooks_last_errored' => 'Viimeisin virhe:',
     'webhooks_last_error_message' => 'Viimeisin virheviesti:',
 
+    // Licensing
+    'licenses' => 'Licenses',
+    'licenses_desc' => 'This page details license information for BookStack in addition to the projects & libraries that are used within BookStack. Many projects listed may only be used in a development context.',
+    'licenses_bookstack' => 'BookStack License',
+    'licenses_php' => 'PHP Library Licenses',
+    'licenses_js' => 'JavaScript Library Licenses',
+    'licenses_other' => 'Other Licenses',
+    'license_details' => 'License Details',
 
     //! If editing translations files directly please ignore this in all
     //! languages apart from en. Content will be auto-copied from en.

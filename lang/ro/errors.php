@@ -10,6 +10,7 @@ return [
 
     // Auth
     'error_user_exists_different_creds' => 'Un utilizator cu adresa de e-mail :email există deja, dar cu acreditări diferite.',
+    'auth_pre_register_theme_prevention' => 'User account could not be registered for the provided details',
     'email_already_confirmed' => 'E-mailul a fost deja confirmat, încearcă să te conectezi.',
     'email_confirmation_invalid' => 'Acest token de confirmare nu este valid sau a fost deja folosit, încercă să te înregistrezi din nou.',
     'email_confirmation_expired' => 'Token-ul de confirmare a expirat, a fost trimis un nou e-mail de confirmare.',
@@ -23,7 +24,6 @@ return [
     'saml_invalid_response_id' => 'Solicitarea de la sistemul extern de autentificare nu este recunoscută de un proces inițiat de această aplicație. Navigarea înapoi după o autentificare ar putea cauza această problemă.',
     'saml_fail_authed' => 'Autentificarea folosind :system a eșuat, sistemul nu a furnizat autorizare cu succes',
     'oidc_already_logged_in' => 'Deja conectat',
-    'oidc_user_not_registered' => 'Utilizatorul :name nu este înregistrat și înregistrarea automată este dezactivată',
     'oidc_no_email_address' => 'Nu s-a putut găsi o adresă de e-mail, pentru acest utilizator, în datele furnizate de sistemul extern de autentificare',
     'oidc_fail_authed' => 'Autentificarea folosind :system a eșuat, sistemul nu a furnizat autorizare cu succes',
     'social_no_action_defined' => 'Nicio acțiune definită',
@@ -37,6 +37,7 @@ return [
     'social_driver_not_found' => 'Driver social negăsit',
     'social_driver_not_configured' => 'Setările tale sociale :socialAccount nu sunt configurate corect.',
     'invite_token_expired' => 'Acest link de invitație a expirat. Poți încerca să îți resetezi parola contului.',
+    'login_user_not_found' => 'A user for this action could not be found.',
 
     // System
     'path_not_writable' => 'Calea fișierului :filePath nu a putut fi încărcată. Asigurați-vă că poate fi scrisă pe server.',

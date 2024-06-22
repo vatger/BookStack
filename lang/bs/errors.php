@@ -10,6 +10,7 @@ return [
 
     // Auth
     'error_user_exists_different_creds' => 'Korisnik sa e-mailom :email već postoji ali sa različitim podacima.',
+    'auth_pre_register_theme_prevention' => 'User account could not be registered for the provided details',
     'email_already_confirmed' => 'E-mail je već potvrđen, pokušajte se prijaviti.',
     'email_confirmation_invalid' => 'Ovaj token za potvrdu nije ispravan ili je već iskorišten, molimo vas pokušajte se registrovati ponovno.',
     'email_confirmation_expired' => 'Ovaj token za potvrdu je istekao, novi e-mail za potvrdu je poslan.',
@@ -23,7 +24,6 @@ return [
     'saml_invalid_response_id' => 'Proces, koji je pokrenula ova aplikacija, nije prepoznao zahtjev od eksternog sistema za autentifikaciju. Navigacija nazad nakon prijave može uzrokovati ovaj problem.',
     'saml_fail_authed' => 'Prijava koristeći :system nije uspjela, sistem nije obezbijedio uspješnu autorizaciju',
     'oidc_already_logged_in' => 'Already logged in',
-    'oidc_user_not_registered' => 'The user :name is not registered and automatic registration is disabled',
     'oidc_no_email_address' => 'Could not find an email address, for this user, in the data provided by the external authentication system',
     'oidc_fail_authed' => 'Login using :system failed, system did not provide successful authorization',
     'social_no_action_defined' => 'Nema definisane akcije',
@@ -37,6 +37,7 @@ return [
     'social_driver_not_found' => 'Driver društvene mreže nije pronađen',
     'social_driver_not_configured' => 'Vaše :socialAccount postavke nisu konfigurisane ispravno.',
     'invite_token_expired' => 'Pozivni link je istekao. Možete umjesto toga pokušati da resetujete lozinku.',
+    'login_user_not_found' => 'A user for this action could not be found.',
 
     // System
     'path_not_writable' => 'Na putanju fajla :filePath se ne može učitati. Potvrdite da je omogućeno pisanje na server.',

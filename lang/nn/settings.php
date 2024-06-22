@@ -109,7 +109,7 @@ return [
     'recycle_bin_contents_empty' => 'Papirkurven er for øyeblikket tom',
     'recycle_bin_empty' => 'Tøm papirkurven',
     'recycle_bin_empty_confirm' => 'Dette vil slette alle elementene i papirkurven permanent. Dette inkluderer innhold i hvert element. Er du sikker på at du vil tømme papirkurven?',
-    'recycle_bin_destroy_confirm' => 'Denne handlinga vil permanent slette dette elementet og alle dets underelementer frå systemet, som skildra nedanfor. Du vil ikkje kunne gjenopprette dette innholdet, med mindre du har ein tidligere tryggleiksskopi av databasen. Er du sikker på at du vil fortsette?',
+    'recycle_bin_destroy_confirm' => 'This action will permanently delete this item from the system, along with any child elements listed below, and you will not be able to restore this content. Are you sure you want to permanently delete this item?',
     'recycle_bin_destroy_list' => 'Elementer som skal slettes',
     'recycle_bin_restore_list' => 'Elementer som skal gjenopprettes',
     'recycle_bin_restore_confirm' => 'Denne handlingen vil hente opp elementet fra papirkurven, inkludert underliggende innhold, til sin opprinnelige sted. Om den opprinnelige plassen har blitt slettet i mellomtiden og nå befinner seg i papirkurven, vil også dette bli hentet opp igjen.',
@@ -276,6 +276,14 @@ return [
     'webhooks_last_errored' => 'Siste feil:',
     'webhooks_last_error_message' => 'Siste feilmelding:',
 
+    // Licensing
+    'licenses' => 'Licenses',
+    'licenses_desc' => 'This page details license information for BookStack in addition to the projects & libraries that are used within BookStack. Many projects listed may only be used in a development context.',
+    'licenses_bookstack' => 'BookStack License',
+    'licenses_php' => 'PHP Library Licenses',
+    'licenses_js' => 'JavaScript Library Licenses',
+    'licenses_other' => 'Other Licenses',
+    'license_details' => 'License Details',
 
     //! If editing translations files directly please ignore this in all
     //! languages apart from en. Content will be auto-copied from en.

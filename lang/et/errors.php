@@ -10,6 +10,7 @@ return [
 
     // Auth
     'error_user_exists_different_creds' => 'See e-posti aadress on juba seotud teise kasutajaga.',
+    'auth_pre_register_theme_prevention' => 'Etteantud detailidega kasutajakontot ei saadud registreerida',
     'email_already_confirmed' => 'E-posti aadress on juba kinnitatud. Proovi sisse logida.',
     'email_confirmation_invalid' => 'Kinnituslink ei ole kehtiv või on seda juba kasutatud. Proovi uuesti registreeruda.',
     'email_confirmation_expired' => 'Kinnituslink on aegunud. Sulle saadeti aadressi kinnitamiseks uus e-kiri.',
@@ -23,7 +24,6 @@ return [
     'saml_invalid_response_id' => 'Välisest autentimissüsteemist tulnud päringut ei algatatud sellest rakendusest. Seda viga võib põhjustada pärast sisselogimist tagasi liikumine.',
     'saml_fail_authed' => 'Sisenemine :system kaudu ebaõnnestus, süsteem ei andnud volitust',
     'oidc_already_logged_in' => 'Juba sisse logitud',
-    'oidc_user_not_registered' => 'Kasutaja :name ei ole registreeritud ning automaatne registreerimine on keelatud',
     'oidc_no_email_address' => 'Selle kasutaja e-posti aadressi ei õnnestunud välisest autentimissüsteemist leida',
     'oidc_fail_authed' => 'Sisenemine :system kaudu ebaõnnestus, süsteem ei andnud volitust',
     'social_no_action_defined' => 'Tegevus on defineerimata',
@@ -37,6 +37,7 @@ return [
     'social_driver_not_found' => 'Sotsiaalmeedia kontode draiverit ei leitud',
     'social_driver_not_configured' => 'Sinu :socialAccount konto seaded ei ole korrektsed.',
     'invite_token_expired' => 'Link on aegunud. Võid selle asemel proovida oma konto parooli lähtestada.',
+    'login_user_not_found' => 'Selle tegevuse jaoks ei leitud kasutajat.',
 
     // System
     'path_not_writable' => 'Faili asukohaga :filePath ei õnnestunud üles laadida. Veendu, et serveril on kirjutusõigused.',

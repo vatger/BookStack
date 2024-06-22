@@ -109,7 +109,7 @@ return [
     'recycle_bin_contents_empty' => 'Ο κάδος ανακύκλωσης είναι επί του παρόντος άδειος',
     'recycle_bin_empty' => 'Αδειάστε τον Κάδο Ανακύκλωσης',
     'recycle_bin_empty_confirm' => 'Αυτό θα καταστρέψει οριστικά όλα τα αντικείμενα στον κάδο ανακύκλωσης, συμπεριλαμβανομένου του περιεχομένου που περιέχεται σε κάθε αντικείμενο. Είστε βέβαιοι ότι θέλετε να αδειάσετε τον κάδο ανακύκλωσης;',
-    'recycle_bin_destroy_confirm' => 'Αυτή η ενέργεια θα διαγράψει οριστικά από το σύστημα αυτό το στοιχείο μαζί με τυχόν θυγατρικά, που αναφέρονται παρακάτω. Μετά την επιβεβαίωση της διαγραφής δεν θα μπορείτε να επαναφέρετε αυτό το περιεχόμενο. Είστε βέβαιοι ότι θέλετε να διαγράψετε οριστικά αυτό το στοιχείο;',
+    'recycle_bin_destroy_confirm' => 'This action will permanently delete this item from the system, along with any child elements listed below, and you will not be able to restore this content. Are you sure you want to permanently delete this item?',
     'recycle_bin_destroy_list' => 'Αντικείμενα για καταστροφή',
     'recycle_bin_restore_list' => 'Αντικείμενα για επαναφορά',
     'recycle_bin_restore_confirm' => 'Αυτή η ενέργεια θα επαναφέρει το διαγραμμένο στοιχείο, συμπεριλαμβανομένων τυχόν θυγατρικών στοιχείων, στην αρχική τους θέση. Εάν η αρχική τοποθεσία έχει από τότε διαγραφεί και βρίσκεται τώρα στον κάδο ανακύκλωσης, θα πρέπει επίσης να αποκατασταθεί και το γονικό στοιχείο.',
@@ -276,6 +276,14 @@ return [
     'webhooks_last_errored' => 'Τελευταίο σφάλμα:',
     'webhooks_last_error_message' => 'Τελευταίο μήνυμα λάθους:',
 
+    // Licensing
+    'licenses' => 'Licenses',
+    'licenses_desc' => 'This page details license information for BookStack in addition to the projects & libraries that are used within BookStack. Many projects listed may only be used in a development context.',
+    'licenses_bookstack' => 'BookStack License',
+    'licenses_php' => 'PHP Library Licenses',
+    'licenses_js' => 'JavaScript Library Licenses',
+    'licenses_other' => 'Other Licenses',
+    'license_details' => 'License Details',
 
     //! If editing translations files directly please ignore this in all
     //! languages apart from en. Content will be auto-copied from en.

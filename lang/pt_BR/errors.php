@@ -10,6 +10,7 @@ return [
 
     // Auth
     'error_user_exists_different_creds' => 'Um usuário com o e-mail :email já existe mas com credenciais diferentes.',
+    'auth_pre_register_theme_prevention' => 'A conta do usuário não pôde ser registrada com os detalhes fornecidos',
     'email_already_confirmed' => 'E-mail já foi confirmado. Tente efetuar o login.',
     'email_confirmation_invalid' => 'Esse token de confirmação não é válido ou já foi utilizado. Por favor, tente cadastrar-se novamente.',
     'email_confirmation_expired' => 'O token de confirmação já expirou. Um novo e-mail foi enviado.',
@@ -23,7 +24,6 @@ return [
     'saml_invalid_response_id' => 'A requisição do sistema de autenticação externa não foi reconhecia por um processo iniciado por esta aplicação. Após o login, navegar para o caminho anterior pode causar um problema.',
     'saml_fail_authed' => 'Login utilizando :system falhou. Sistema não forneceu autorização bem sucedida',
     'oidc_already_logged_in' => 'Já está logado',
-    'oidc_user_not_registered' => 'O usuário :name não está registrado e o registro automático está desativado',
     'oidc_no_email_address' => 'Não foi possível encontrar um endereço de e-mail para este usuário, nos dados fornecidos pelo sistema de autenticação externa',
     'oidc_fail_authed' => 'Login usando :system falhou, o sistema não forneceu autorização com sucesso',
     'social_no_action_defined' => 'Nenhuma ação definida',
@@ -37,6 +37,7 @@ return [
     'social_driver_not_found' => 'Social driver não encontrado',
     'social_driver_not_configured' => 'Seus parâmetros socials de :socialAccount não estão configurados corretamente.',
     'invite_token_expired' => 'Esse link de convite expirou. Alternativamente, você pode tentar redefinir a senha da sua conta.',
+    'login_user_not_found' => 'Não foi possível encontrar um usuário para esta ação.',
 
     // System
     'path_not_writable' => 'O caminho de destino (:filePath) de upload de arquivo não possui permissão de escrita. Certifique-se que ele possui direitos de escrita no servidor.',

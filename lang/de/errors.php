@@ -10,6 +10,7 @@ return [
 
     // Auth
     'error_user_exists_different_creds' => 'Ein Benutzer mit der E-Mail-Adresse :email ist bereits mit anderen Anmeldedaten registriert.',
+    'auth_pre_register_theme_prevention' => 'Benutzerkonto konnte für die angegebenen Details nicht registriert werden',
     'email_already_confirmed' => 'Die E-Mail-Adresse ist bereits bestätigt. Bitte melden Sie sich an.',
     'email_confirmation_invalid' => 'Der Bestätigungslink ist nicht gültig oder wurde bereits verwendet. Bitte registrieren Sie sich erneut.',
     'email_confirmation_expired' => 'Der Bestätigungslink ist abgelaufen. Es wurde eine neue Bestätigungs-E-Mail gesendet.',
@@ -23,7 +24,6 @@ return [
     'saml_invalid_response_id' => 'Die Anfrage vom externen Authentifizierungssystem wird von einem von dieser Anwendung gestarteten Prozess nicht erkannt. Das Zurückgehen nach einer Anmeldung könnte dieses Problem verursachen.',
     'saml_fail_authed' => 'Anmeldung mit :system fehlgeschlagen, System konnte keine erfolgreiche Autorisierung bereitstellen',
     'oidc_already_logged_in' => 'Bereits angemeldet',
-    'oidc_user_not_registered' => 'Der Benutzer :name ist nicht registriert und die automatische Registrierung ist deaktiviert',
     'oidc_no_email_address' => 'Es konnte keine E-Mail-Adresse für diesen Benutzer in den vom externen Authentifizierungssystem zur Verfügung gestellten Daten gefunden werden',
     'oidc_fail_authed' => 'Anmeldung mit :system fehlgeschlagen, System konnte keine erfolgreiche Autorisierung bereitstellen',
     'social_no_action_defined' => 'Es ist keine Aktion definiert',
@@ -37,6 +37,7 @@ return [
     'social_driver_not_found' => 'Treiber für Social-Media-Konten nicht gefunden',
     'social_driver_not_configured' => 'Ihr :socialAccount-Konto ist nicht korrekt konfiguriert.',
     'invite_token_expired' => 'Dieser Einladungslink ist abgelaufen. Sie können stattdessen versuchen Ihr Passwort zurückzusetzen.',
+    'login_user_not_found' => 'Ein Benutzer für diese Aktion konnte nicht gefunden werden.',
 
     // System
     'path_not_writable' => 'Die Datei kann nicht in den angegebenen Pfad :filePath hochgeladen werden. Stellen Sie sicher, dass dieser Ordner auf dem Server beschreibbar ist.',

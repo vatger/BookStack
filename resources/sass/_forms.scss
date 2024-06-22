@@ -128,8 +128,9 @@
   body {
     display: block;
     background-color: #fff;
-    padding-inline-start: 16px;
-    padding-inline-end: 16px;
+    padding-inline-start: 12px;
+    padding-inline-end: 12px;
+    max-width: 864px;
   }
   [drawio-diagram]:hover {
     outline: 2px solid var(--color-primary);
@@ -320,6 +321,7 @@ input[type=color] {
   }
 }
 .setting-list-label {
+  @include lightDark(color, #222, #DDD);
   color: #222;
   font-size: 1rem;
 }
@@ -386,6 +388,20 @@ input[type=color] {
   &.open .collapse-title label:before {
     transform: rotate(90deg);
   }
+}
+
+.form-group.ambrosia-container, .form-group.ambrosia-container * {
+    position:absolute !important;
+    height:1px !important;
+    width:1px !important;
+    margin:-1px !important;
+    padding:0 !important;
+    background:transparent !important;
+    color:transparent !important;
+    border:none !important;
+    overflow: hidden !important;
+    clip: rect(0,0,0,0) !important;
+    white-space: nowrap !important;
 }
 
 .title-input input[type="text"] {

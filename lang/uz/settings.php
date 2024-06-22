@@ -109,7 +109,7 @@ return [
     'recycle_bin_contents_empty' => 'Qayta ishlash qutisi hozir bo\'sh',
     'recycle_bin_empty' => 'Chiqindi qutisini bo\'shatish',
     'recycle_bin_empty_confirm' => 'Bu axlat qutisidagi barcha narsalarni, shu jumladan har bir element ichidagi kontentni butunlay yo\'q qiladi. Chiqindi qutisini bo\'shatishga ishonchingiz komilmi?',
-    'recycle_bin_destroy_confirm' => 'Bu amal ushbu elementni va quyida sanab o‘tilgan har qanday yordamchi elementlarni tizimdan butunlay o‘chirib tashlaydi va siz ushbu kontentni qayta tiklay olmaysiz. Haqiqatan ham bu elementni butunlay oʻchirib tashlamoqchimisiz?',
+    'recycle_bin_destroy_confirm' => 'This action will permanently delete this item from the system, along with any child elements listed below, and you will not be able to restore this content. Are you sure you want to permanently delete this item?',
     'recycle_bin_destroy_list' => 'Yo\'q qilinishi kerak bo\'lgan narsalar',
     'recycle_bin_restore_list' => 'Qayta tiklanadigan narsalar',
     'recycle_bin_restore_confirm' => 'Bu amal oʻchirilgan elementni, shu jumladan har qanday yordamchi elementlarni asl joyiga tiklaydi. Agar asl joy o\'chirilgan bo\'lsa va hozir axlat qutisida bo\'lsa, asosiy element ham tiklanishi kerak bo\'ladi.',
@@ -276,6 +276,14 @@ return [
     'webhooks_last_errored' => 'Oxirgi xato:',
     'webhooks_last_error_message' => 'Oxirgi xato xabari:',
 
+    // Licensing
+    'licenses' => 'Licenses',
+    'licenses_desc' => 'This page details license information for BookStack in addition to the projects & libraries that are used within BookStack. Many projects listed may only be used in a development context.',
+    'licenses_bookstack' => 'BookStack License',
+    'licenses_php' => 'PHP Library Licenses',
+    'licenses_js' => 'JavaScript Library Licenses',
+    'licenses_other' => 'Other Licenses',
+    'license_details' => 'License Details',
 
     //! If editing translations files directly please ignore this in all
     //! languages apart from en. Content will be auto-copied from en.

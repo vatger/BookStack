@@ -109,7 +109,7 @@ return [
     'recycle_bin_contents_empty' => 'Papirkurven er for øyeblikket tom',
     'recycle_bin_empty' => 'Tøm papirkurven',
     'recycle_bin_empty_confirm' => 'Dette vil slette alle elementene i papirkurven permanent. Dette inkluderer innhold i hvert element. Er du sikker på at du vil tømme papirkurven?',
-    'recycle_bin_destroy_confirm' => 'Denne handlingen vil permanent slette dette elementet og alle dets underelementer fra systemet, som beskrevet nedenfor. Du vil ikke kunne gjenopprette dette innholdet med mindre du har en tidligere sikkerhetskopi av databasen. Er du sikker på at du vil fortsette?',
+    'recycle_bin_destroy_confirm' => 'Denne handlingen vil slette dette elementet permanent fra systemet, sammen med alle underelementer listet nedenfor, og du vil ikke kunne gjenopprette dette innholdet. Er du sikker på at du vil slette dette permanent?',
     'recycle_bin_destroy_list' => 'Elementer som skal slettes',
     'recycle_bin_restore_list' => 'Elementer som skal gjenopprettes',
     'recycle_bin_restore_confirm' => 'Denne handlingen vil hente opp elementet fra papirkurven, inkludert underliggende innhold, til sin opprinnelige sted. Om den opprinnelige plassen har blitt slettet i mellomtiden og nå befinner seg i papirkurven, vil også dette bli hentet opp igjen.',
@@ -276,6 +276,14 @@ return [
     'webhooks_last_errored' => 'Siste feil:',
     'webhooks_last_error_message' => 'Siste feilmelding:',
 
+    // Licensing
+    'licenses' => 'Lisenser',
+    'licenses_desc' => 'Denne siden detaljerer lisensinformasjonen for BookStack, i tillegg til prosjektene & bibliotekene som brukes i BookStack. Mange av de oppførte prosjektene kan bare brukes i utviklingssammenheng.',
+    'licenses_bookstack' => 'BookStack lisens',
+    'licenses_php' => 'PHP Bibliotek lisenser',
+    'licenses_js' => 'JavaScript bibliotek-lisenser',
+    'licenses_other' => 'Andre lisenser',
+    'license_details' => 'Lisens detaljer',
 
     //! If editing translations files directly please ignore this in all
     //! languages apart from en. Content will be auto-copied from en.

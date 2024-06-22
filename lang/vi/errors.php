@@ -10,6 +10,7 @@ return [
 
     // Auth
     'error_user_exists_different_creds' => 'Đã có người sử dụng email :email nhưng với thông tin định danh khác.',
+    'auth_pre_register_theme_prevention' => 'User account could not be registered for the provided details',
     'email_already_confirmed' => 'Email đã được xác nhận trước đó, Đang đăng nhập.',
     'email_confirmation_invalid' => 'Token xác nhận này không hợp lệ hoặc đã được sử dụng trước đó, Xin hãy thử đăng ký lại.',
     'email_confirmation_expired' => 'Token xác nhận đã hết hạn, Một email xác nhận mới đã được gửi.',
@@ -23,7 +24,6 @@ return [
     'saml_invalid_response_id' => 'Yêu cầu từ hệ thống xác thực bên ngoài không được nhận diện bởi quy trình chạy cho ứng dụng này. Điều hướng trở lại sau khi đăng nhập có thể đã gây ra vấn đề này.',
     'saml_fail_authed' => 'Đăng nhập sử dụng :system thất bại, hệ thống không cung cấp được sự xác thực thành công',
     'oidc_already_logged_in' => 'Đã đăng nhập',
-    'oidc_user_not_registered' => 'Người dùng :name chưa được đăng ký và tự động đăng ký đang bị tắt',
     'oidc_no_email_address' => 'Không tìm thấy địa chỉ email cho người dùng này, trong dữ liệu được cung cấp bới hệ thống xác thực ngoài',
     'oidc_fail_authed' => 'Đăng nhập sử dụng :system thất bại, hệ thống không cung cấp được sự xác thực thành công',
     'social_no_action_defined' => 'Không có hành động được xác định',
@@ -37,6 +37,7 @@ return [
     'social_driver_not_found' => 'Không tìm thấy driver cho MXH',
     'social_driver_not_configured' => 'Cài đặt MXH :socialAccount của bạn đang không được cấu hình hợp lệ.',
     'invite_token_expired' => 'Liên kết mời này đã hết hạn. Bạn có thể thử đặt lại mật khẩu của tài khoản.',
+    'login_user_not_found' => 'A user for this action could not be found.',
 
     // System
     'path_not_writable' => 'Đường dẫn tệp tin :filePath không thể tải đến được. Đảm bảo rằng đường dẫn này có thể ghi được ở trên máy chủ.',

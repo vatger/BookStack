@@ -109,7 +109,7 @@ return [
     'recycle_bin_contents_empty' => 'Recycle Bin je prazan',
     'recycle_bin_empty' => 'Isprazni Recycle Bin',
     'recycle_bin_empty_confirm' => 'Ovo će trajno obrisati sve stavke u Recycle Bin i sadržaje povezane s njima. Jeste li sigurni da želite isprazniti Recycle Bin?',
-    'recycle_bin_destroy_confirm' => 'Ovom radnjom ćete trajno izbrisati ovu stavku i nećete je više moći vratiti. Želite li je trajno izbrisati?',
+    'recycle_bin_destroy_confirm' => 'This action will permanently delete this item from the system, along with any child elements listed below, and you will not be able to restore this content. Are you sure you want to permanently delete this item?',
     'recycle_bin_destroy_list' => 'Stavke koje treba izbrisati',
     'recycle_bin_restore_list' => 'Stavke koje treba vratiti',
     'recycle_bin_restore_confirm' => 'Ova radnja vraća izbrisane stavke i njene podređene elemente na prvobitnu lokaciju. Ako je nadređena stavka izbrisana i nju treba vratiti.',
@@ -276,6 +276,14 @@ return [
     'webhooks_last_errored' => 'Zadnja pogreška:',
     'webhooks_last_error_message' => 'Posljednja poruka o pogrešci:',
 
+    // Licensing
+    'licenses' => 'Licenses',
+    'licenses_desc' => 'This page details license information for BookStack in addition to the projects & libraries that are used within BookStack. Many projects listed may only be used in a development context.',
+    'licenses_bookstack' => 'BookStack License',
+    'licenses_php' => 'PHP Library Licenses',
+    'licenses_js' => 'JavaScript Library Licenses',
+    'licenses_other' => 'Other Licenses',
+    'license_details' => 'License Details',
 
     //! If editing translations files directly please ignore this in all
     //! languages apart from en. Content will be auto-copied from en.

@@ -110,7 +110,7 @@ Hinweis: Benutzer können ihre E-Mail-Adresse nach erfolgreicher Registrierung �
     'recycle_bin_contents_empty' => 'Der Papierkorb ist derzeit leer',
     'recycle_bin_empty' => 'Papierkorb leeren',
     'recycle_bin_empty_confirm' => 'Dies wird alle Gegenstände im Papierkorb dauerhaft entfernen, einschließlich der Inhalte, die darin enthalten sind. Sind Sie sicher, dass Sie den Papierkorb leeren möchten?',
-    'recycle_bin_destroy_confirm' => 'Diese Aktion wird dieses Element zusammen mit allen unten aufgeführten Unterelementen dauerhaft aus dem System löschen und Sie werden nicht in der Lage sein, diesen Inhalt wiederherzustellen. Sind Sie sicher, dass Sie dieses Element endgültig löschen möchten?',
+    'recycle_bin_destroy_confirm' => 'Diese Aktion löscht dieses Element dauerhaft aus dem System, zusammen mit allen unten aufgeführten untergeordneten Elementen, und es ist nicht möglich, diesen Inhalt wiederherzustellen. Sind Sie sicher, dass Sie dieses Element dauerhaft löschen möchten?',
     'recycle_bin_destroy_list' => 'Zu löschende Elemente',
     'recycle_bin_restore_list' => 'Zu wiederherzustellende Elemente',
     'recycle_bin_restore_confirm' => 'Mit dieser Aktion wird das gelöschte Element einschließlich aller untergeordneten Elemente an seinen ursprünglichen Ort wiederherstellen. Wenn der ursprüngliche Ort gelöscht wurde und sich nun im Papierkorb befindet, muss auch das übergeordnete Element wiederhergestellt werden.',
@@ -277,6 +277,14 @@ Hinweis: Benutzer können ihre E-Mail-Adresse nach erfolgreicher Registrierung �
     'webhooks_last_errored' => 'Letzter Fehler:',
     'webhooks_last_error_message' => 'Letzte Fehlermeldung:',
 
+    // Licensing
+    'licenses' => 'Lizenzen',
+    'licenses_desc' => 'Diese Seite beschreibt Lizenzinformationen für BookStack zusätzlich zu den Projekten und Bibliotheken, die in BookStack verwendet werden. Viele aufgelistete Projekte dürfen nur in einem Entwicklungskontext verwendet werden.',
+    'licenses_bookstack' => 'BookStack-Lizenz',
+    'licenses_php' => 'PHP-Bibliothekslizenzen',
+    'licenses_js' => 'JavaScript-Bibliothekslizenzen',
+    'licenses_other' => 'Andere Lizenzen',
+    'license_details' => 'Lizenzdetails',
 
     //! If editing translations files directly please ignore this in all
     //! languages apart from en. Content will be auto-copied from en.

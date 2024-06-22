@@ -109,7 +109,7 @@ return [
     'recycle_bin_contents_empty' => 'Koš je nyní prázdný',
     'recycle_bin_empty' => 'Vysypat Koš',
     'recycle_bin_empty_confirm' => 'Toto trvale odstraní všechny položky v Koši včetně obsahu vloženého v každé položce. Opravdu chcete vysypat Koš?',
-    'recycle_bin_destroy_confirm' => 'Tato akce trvale odstraní ze systému tuto položku spolu s veškerým vloženým obsahem a tento obsah nebudete moci obnovit. Opravdu chcete tuto položku trvale odstranit?',
+    'recycle_bin_destroy_confirm' => 'Tato akce trvale odstraní tuto položku ze systému spolu se všemi položkami uvedenými níže a nebudete je moci obnovit. Opravdu chcete tuto položku trvale odstranit?',
     'recycle_bin_destroy_list' => 'Položky k trvalému odstranění',
     'recycle_bin_restore_list' => 'Položky k obnovení',
     'recycle_bin_restore_confirm' => 'Tato akce obnoví odstraněnou položku včetně veškerého vloženého obsahu do původního umístění. Pokud bylo původní umístění od té doby odstraněno a nyní je v Koši, bude také nutné obnovit nadřazenou položku.',
@@ -276,6 +276,14 @@ return [
     'webhooks_last_errored' => 'Poslední chyba:',
     'webhooks_last_error_message' => 'Poslední chybová zpráva',
 
+    // Licensing
+    'licenses' => 'Licence',
+    'licenses_desc' => 'Na této stránce naleznete kromě informací o projektech a knihovnách, které se v rámci BookStacku používají, také informace o licencích pro BookStack. Mnoho uvedených projektů lze používat pouze ve vývojovém kontextu.',
+    'licenses_bookstack' => 'BookStack licence',
+    'licenses_php' => 'Licence PHP knihoven',
+    'licenses_js' => 'Licence JavaScript knihoven',
+    'licenses_other' => 'Ostatní licence',
+    'license_details' => 'Podrobnosti o licenci',
 
     //! If editing translations files directly please ignore this in all
     //! languages apart from en. Content will be auto-copied from en.

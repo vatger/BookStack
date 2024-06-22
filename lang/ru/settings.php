@@ -86,7 +86,7 @@ return [
     'maint_send_test_email' => 'Отправить тестовое письмо',
     'maint_send_test_email_desc' => 'Отправить тестовое письмо на адрес электронной почты, указанный в профиле.',
     'maint_send_test_email_run' => 'Отправить письмо',
-    'maint_send_test_email_success' => 'На адрес :address отравлено письмо',
+    'maint_send_test_email_success' => 'Письмо отправлено на :address',
     'maint_send_test_email_mail_subject' => 'Проверка электронной почты',
     'maint_send_test_email_mail_greeting' => 'Доставка электронной почты работает!',
     'maint_send_test_email_mail_text' => 'Поздравляем! Поскольку вы получили это письмо, электронная почта настроена правильно.',
@@ -109,7 +109,7 @@ return [
     'recycle_bin_contents_empty' => 'На данный момент корзина пуста',
     'recycle_bin_empty' => 'Очистить корзину',
     'recycle_bin_empty_confirm' => 'Это действие навсегда уничтожит все элементы в корзине, включая содержимое, содержащееся в каждом элементе. Вы уверены, что хотите очистить корзину?',
-    'recycle_bin_destroy_confirm' => 'Это действие удалит этот элемент навсегда вместе с любыми дочерними элементами, перечисленными ниже, и вы не сможете восстановить этот контент. Вы уверены, что хотите навсегда удалить этот элемент?',
+    'recycle_bin_destroy_confirm' => 'Это действие навсегда удалит этот элемент из системы, вместе с любыми дочерними элементами, перечисленными ниже, и вы не сможете восстановить этот контент. Вы уверены, что хотите навсегда удалить этот элемент?',
     'recycle_bin_destroy_list' => 'Элементы для удаления',
     'recycle_bin_restore_list' => 'Элементы для восстановления',
     'recycle_bin_restore_confirm' => 'Это действие восстановит удаленный элемент, включая дочерние, в исходное место. Если исходное место было удалено и теперь находится в корзине, родительский элемент также необходимо будет восстановить.',
@@ -193,8 +193,8 @@ return [
     'users_send_invite_text' => 'Вы можете отправить этому пользователю письмо с приглашением, которое позволит ему установить пароль самостоятельно или задайте пароль сами.',
     'users_send_invite_option' => 'Отправить пользователю письмо с приглашением',
     'users_external_auth_id' => 'Внешний ID аутентификации',
-    'users_external_auth_id_desc' => 'When an external authentication system is in use (such as SAML2, OIDC or LDAP) this is the ID which links this BookStack user to the authentication system account. You can ignore this field if using the default email-based authentication.',
-    'users_password_warning' => 'Only fill the below if you would like to change the password for this user.',
+    'users_external_auth_id_desc' => 'Когда используется внешняя система аутентификации (например, SAML2, OIDC или LDAP), этот идентификатор будет использоваться для связывания пользователя BookStack с учетной записью системы аутентификации. Вы можете игнорировать это поле, если используете стандартную аутентификацию по электронной почте.',
+    'users_password_warning' => 'Заполните поля ниже только если вы хотите изменить пароль.',
     'users_system_public' => 'Этот пользователь представляет любых гостевых пользователей, которые посещают ваше приложение. Он не может использоваться для входа в систему и назначается автоматически.',
     'users_delete' => 'Удалить пользователя',
     'users_delete_named' => 'Удалить пользователя :userName',
@@ -210,7 +210,7 @@ return [
     'users_preferred_language' => 'Предпочитаемый язык',
     'users_preferred_language_desc' => 'Этот параметр изменит язык интерфейса приложения. Это не влияет на созданный пользователем контент.',
     'users_social_accounts' => 'Аккаунты социальных сетей',
-    'users_social_accounts_desc' => 'View the status of the connected social accounts for this user. Social accounts can be used in addition to the primary authentication system for system access.',
+    'users_social_accounts_desc' => 'Просмотр статуса подключенных социальных учетных записей для этого пользователя. Учетные записи социальных сетей могут использоваться в дополнение к системе первичной аутентификации для доступа к системе.',
     'users_social_accounts_info' => 'Здесь вы можете подключить другие учетные записи для более быстрого и легкого входа в систему. Отключение учетной записи здесь не возможно. Отмените доступ к настройкам вашего профиля в подключенном социальном аккаунте.',
     'users_social_connect' => 'Подключить аккаунт',
     'users_social_disconnect' => 'Отключить аккаунт',
@@ -276,6 +276,14 @@ return [
     'webhooks_last_errored' => 'Последняя ошибка:',
     'webhooks_last_error_message' => 'Последнее сообщение об ошибке:',
 
+    // Licensing
+    'licenses' => 'Лицензии',
+    'licenses_desc' => 'Эта страница содержит сведения о лицензиях для BookStack в дополнение к проектам и библиотекам, которые используются в BookStack. Многие перечисленные проекты могут использоваться только в контексте разработки.',
+    'licenses_bookstack' => 'Лицензия BookStack',
+    'licenses_php' => 'Лицензии PHP библиотек',
+    'licenses_js' => 'Лицензии JavaScript библиотек',
+    'licenses_other' => 'Прочие лицензии',
+    'license_details' => 'Подробности о лицензии',
 
     //! If editing translations files directly please ignore this in all
     //! languages apart from en. Content will be auto-copied from en.
