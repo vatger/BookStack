@@ -20,14 +20,18 @@ class ConnectController extends Controller
     /**
      * The Authentication Provider Instance
      */
-    protected VatgerConnectProvider $provider;
+    protected VatsimConnectProvider|VatgerConnectProvider $provider;
 
     /**
      * Initialize the Controller with a new ConnectProvider instance
      */
     public function __construct()
     {
-        $this->provider = new VatgerConnectProvider();
+        if (config('connect.use_vatger')) {
+            $this->provider = new VatgerConnectProvider();
+        } else {
+            $this->provider = new VatsimConnectProvider();
+        }
     }
 
     /**

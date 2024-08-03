@@ -1,5 +1,6 @@
 <?php
 return [
+    'use_vatger' => env('USE_VATGER_AUTH', false),
     'name' => env('VATSIM_OAUTH_NAME', 'VATSIM Connect'),
     'base' => env('VATSIM_OAUTH_BASE', 'https://auth-dev.vatsim.net'),
     'id' => env('VATSIM_OAUTH_CLIENT', 0),
