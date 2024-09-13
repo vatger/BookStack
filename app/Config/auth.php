@@ -34,6 +34,7 @@ return [
         'standard' => [
             'driver'   => 'session',
             'provider' => 'users',
+            'remember' => "1440",
         ],
         'ldap' => [
             'driver'   => 'ldap-session',
@@ -46,6 +47,7 @@ return [
         'oidc' => [
             'driver'   => 'async-external-session',
             'provider' => 'external',
+            'remember' => "1440",
         ],
         'api' => [
             'driver'   => 'api-token',
