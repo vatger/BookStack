@@ -96,6 +96,22 @@ Copyright: Copyright (C) 1991, 1999 Free Software Foundation, Inc.
 Source: https://github.com/dompdf/dompdf.git
 Link: https://github.com/dompdf/dompdf
 -----------
+dompdf/php-font-lib
+License: LGPL-2.1-or-later
+License File: vendor/dompdf/php-font-lib/LICENSE
+Copyright: Copyright (C) 1991, 1999 Free Software Foundation, Inc.
+Source: https://github.com/dompdf/php-font-lib.git
+Link: https://github.com/dompdf/php-font-lib
+-----------
+dompdf/php-svg-lib
+License: LGPL-3.0-or-later
+License File: vendor/dompdf/php-svg-lib/LICENSE
+Copyright: Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+Source: https://github.com/dompdf/php-svg-lib.git
+Link: https://github.com/dompdf/php-svg-lib
+-----------
 dragonmantank/cron-expression
 License: MIT
 License File: vendor/dragonmantank/cron-expression/LICENSE
@@ -128,7 +144,7 @@ Link: https://github.com/fruitcake/php-cors
 graham-campbell/result-type
 License: MIT
 License File: vendor/graham-campbell/result-type/LICENSE
-Copyright: Copyright (c) 2020-2023 Graham Campbell <*****@**********.**.**>
+Copyright: Copyright (c) 2020-2024 Graham Campbell <*****@**********.**.**>
 Source: https://github.com/GrahamCampbell/Result-Type.git
 Link: https://github.com/GrahamCampbell/Result-Type.git
 -----------
@@ -375,22 +391,6 @@ Copyright: Copyright (c) 2015 Paragon Initiative Enterprises
 Source: https://github.com/paragonie/random_compat.git
 Link: https://github.com/paragonie/random_compat.git
 -----------
-phenx/php-font-lib
-License: LGPL-2.1-or-later
-License File: vendor/phenx/php-font-lib/LICENSE
-Copyright: Copyright (C) 1991, 1999 Free Software Foundation, Inc.
-Source: https://github.com/dompdf/php-font-lib.git
-Link: https://github.com/PhenX/php-font-lib
------------
-phenx/php-svg-lib
-License: LGPL-3.0-or-later
-License File: vendor/phenx/php-svg-lib/LICENSE
-Copyright: Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
- Everyone is permitted to copy and distribute verbatim copies
- of this license document, but changing it is not allowed.
-Source: https://github.com/dompdf/php-svg-lib.git
-Link: https://github.com/PhenX/php-svg-lib
------------
 phpoption/phpoption
 License: Apache-2.0
 License File: vendor/phpoption/phpoption/LICENSE
@@ -415,7 +415,7 @@ predis/predis
 License: MIT
 License File: vendor/predis/predis/LICENSE
 Copyright: Copyright (c) 2009-2020 Daniele Alessandri (original work)
-Copyright (c) 2021-2023 Till Krüss (modified work)
+Copyright (c) 2021-2024 Till Krüss (modified work)
 Source: https://github.com/predis/predis.git
 Link: http://github.com/predis/predis
 -----------
@@ -514,7 +514,7 @@ Link: https://github.com/ramsey/uuid.git
 robrichards/xmlseclibs
 License: BSD-3-Clause
 License File: vendor/robrichards/xmlseclibs/LICENSE
-Copyright: Copyright (c) 2007-2019, Robert Richards <*********@*********.***>.
+Copyright: Copyright (c) 2007-2024, Robert Richards <*********@*********.***>.
 Source: https://github.com/robrichards/xmlseclibs.git
 Link: https://github.com/robrichards/xmlseclibs
 -----------
@@ -674,13 +674,6 @@ License: MIT
 License File: vendor/symfony/polyfill-mbstring/LICENSE
 Copyright: Copyright (c) 2015-present Fabien Potencier
 Source: https://github.com/symfony/polyfill-mbstring.git
-Link: https://symfony.com
------------
-symfony/polyfill-php72
-License: MIT
-License File: vendor/symfony/polyfill-php72/LICENSE
-Copyright: Copyright (c) 2015-present Fabien Potencier
-Source: https://github.com/symfony/polyfill-php72.git
 Link: https://symfony.com
 -----------
 symfony/polyfill-php80
